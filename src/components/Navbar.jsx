@@ -2,22 +2,14 @@ import { Link, useLocation } from "react-router-dom";
 
 function Navbar() {
   const location = useLocation();
+  const isServicesPage = location.pathname === "/services";
+  const isHomePage = location.pathname === "/";
+  const isContactPage = location.pathname === "/contact";
 
   const handleHomeClick = (event) => {
     if (location.pathname === "/") {
       event.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  };
-
-  const handleServicesClick = (event) => {
-    if (location.pathname === "/") {
-      event.preventDefault();
-      const element = document.getElementById("services");
-
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
     }
   };
 
@@ -32,9 +24,11 @@ function Navbar() {
       </Link>
 
       <nav className="site-nav" aria-label="Primary navigation">
-        <Link to="/" onClick={handleHomeClick}>Home</Link>
-        <Link to="/#services" onClick={handleServicesClick}>Services</Link>
-        <Link to="/contact" className="site-nav-cta">Contact</Link>
+        <Link to="/" onClick={handleHomeClick} className={isHomePage ? "site-nav-link-active" : ""}>Home</Link>
+        <Link to="/">About Us</Link>
+        <Link to="/services" className={isServicesPage ? "site-nav-link-active" : ""}>Services</Link>
+        <Link to="/contact" className={isContactPage ? "site-nav-link-active" : ""}>Contact</Link>
+        <Link to="/book-service" className="site-nav-cta">Book Now</Link>
       </nav>
     </header>
   );
