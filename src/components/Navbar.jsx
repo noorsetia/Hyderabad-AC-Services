@@ -4,6 +4,7 @@ function Navbar() {
   const location = useLocation();
   const isServicesPage = location.pathname === "/services";
   const isHomePage = location.pathname === "/";
+  const isAboutPage = location.pathname === "/about";
   const isContactPage = location.pathname === "/contact";
 
   const handleHomeClick = (event) => {
@@ -25,7 +26,7 @@ function Navbar() {
 
       <nav className="site-nav" aria-label="Primary navigation">
         <Link to="/" onClick={handleHomeClick} className={isHomePage ? "site-nav-link-active" : ""}>Home</Link>
-        <Link to="/">About Us</Link>
+        <Link to="/about" className={isAboutPage ? "site-nav-link-active" : ""}>About Us</Link>
         <Link to="/services" className={isServicesPage ? "site-nav-link-active" : ""}>Services</Link>
         <Link to="/contact" className={isContactPage ? "site-nav-link-active" : ""}>Contact</Link>
         <Link to="/book-service" className="site-nav-cta">Book Now</Link>
