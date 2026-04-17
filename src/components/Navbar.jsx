@@ -14,6 +14,15 @@ function Navbar() {
     }
   };
 
+  // Optional: smooth scroll to services if already on home
+  const handleServicesClick = (event) => {
+    if (location.pathname === "/") {
+      event.preventDefault();
+      const el = document.getElementById("services");
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <header className="site-navbar">
       <Link className="site-brand" to="/" onClick={handleHomeClick}>
@@ -24,13 +33,13 @@ function Navbar() {
         </span>
       </Link>
 
-      <nav className="site-nav" aria-label="Primary navigation">
+            <nav className="site-nav" aria-label="Primary navigation">
         <Link to="/" onClick={handleHomeClick} className={isHomePage ? "site-nav-link-active" : ""}>Home</Link>
         <Link to="/about" className={isAboutPage ? "site-nav-link-active" : ""}>About Us</Link>
-        <Link to="/services" className={isServicesPage ? "site-nav-link-active" : ""}>Services</Link>
+        <Link to="/services" onClick={handleServicesClick} className={isServicesPage ? "site-nav-link-active" : ""}>Services</Link>
         <Link to="/contact" className={isContactPage ? "site-nav-link-active" : ""}>Contact</Link>
         <Link to="/book-service" className="site-nav-cta">Book Now</Link>
-      </nav>
+            </nav>
     </header>
   );
 }
