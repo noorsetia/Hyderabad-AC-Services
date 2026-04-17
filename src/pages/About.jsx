@@ -1,6 +1,24 @@
 import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
 
 function About() {
+  const heroHighlights = ["Certified Team", "Same-Day Support", "Transparent Pricing"];
+
+  const valuePillars = [
+    {
+      title: "Quality First",
+      description: "We use proven processes and quality checks at every stage of every project.",
+    },
+    {
+      title: "Fast Turnaround",
+      description: "From emergency breakdowns to planned upgrades, our response stays quick and reliable.",
+    },
+    {
+      title: "Long-Term Support",
+      description: "We stay with you after installation with maintenance plans and dependable after-service.",
+    },
+  ];
+
   const testimonials = [
     {
       name: "Rajesh Kumar",
@@ -23,19 +41,19 @@ function About() {
   ];
 
   const stats = [
-    { number: "500+", label: "Happy Clients", icon: "👥" },
-    { number: "1000+", label: "Projects Completed", icon: "✓" },
-    { number: "10+", label: "Years Experience", icon: "⏰" },
-    { number: "24/7", label: "Customer Support", icon: "📞" },
+    { number: "500+", label: "Happy Clients" },
+    { number: "1000+", label: "Projects Completed" },
+    { number: "10+", label: "Years Experience" },
+    { number: "24/7", label: "Customer Support" },
   ];
 
   const services = [
-    { icon: "❄️", title: "AC Installation", description: "Split, window & centralized AC systems" },
-    { icon: "🔧", title: "AC Repair", description: "Quick fixes and emergency support" },
-    { icon: "🧹", title: "Maintenance", description: "Seasonal & annual maintenance plans" },
-    { icon: "🏗️", title: "Ducting", description: "Professional ducting solutions" },
-    { icon: "🍳", title: "Kitchen Exhaust", description: "Restaurant kitchen exhaust systems" },
-    { icon: "🌬️", title: "VRF/VRV Systems", description: "Advanced cooling technologies" },
+    { title: "AC Installation", description: "Split, window & centralized AC systems" },
+    { title: "AC Repair", description: "Quick fixes and emergency support" },
+    { title: "Maintenance", description: "Seasonal & annual maintenance plans" },
+    { title: "Ducting", description: "Professional ducting solutions" },
+    { title: "Kitchen Exhaust", description: "Restaurant kitchen exhaust systems" },
+    { title: "VRF/VRV Systems", description: "Advanced cooling technologies" },
   ];
 
   const process = [
@@ -48,9 +66,36 @@ function About() {
   return (
     <div className="about-page">
       <section className="about-hero">
-        <p className="eyebrow">Our Story</p>
-        <h1>Keeping Hyderabad Cool, Comfortable & Worry-Free</h1>
-        <p>Your trusted partner for complete Air Conditioning and HVAC Solutions</p>
+        <div className="about-hero-content">
+          <p className="eyebrow">Our Story</p>
+          <h1>Keeping Hyderabad Cool, Comfortable & Worry-Free</h1>
+          <p>
+            Your trusted partner for complete Air Conditioning and HVAC Solutions for homes,
+            offices, restaurants, hospitals, and industrial spaces.
+          </p>
+
+          <div className="about-hero-badges">
+            {heroHighlights.map((item, idx) => (
+              <span key={idx}>{item}</span>
+            ))}
+          </div>
+
+          <div className="about-hero-actions">
+            <Link to="/contact" className="about-primary-btn">Book a Free Consultation</Link>
+            <Link to="/#services" className="about-secondary-btn">Explore Services</Link>
+          </div>
+        </div>
+
+        <div className="about-hero-panel">
+          <p className="about-hero-panel-label">Trusted HVAC Partner</p>
+          <h3>Built on Reliability, Backed by Results</h3>
+          <ul>
+            <li>Serving all major locations across Hyderabad</li>
+            <li>Certified engineers and trained technicians</li>
+            <li>Residential and commercial project expertise</li>
+            <li>End-to-end support from installation to AMC</li>
+          </ul>
+        </div>
       </section>
 
       {/* Statistics Section */}
@@ -58,7 +103,6 @@ function About() {
         <div className="about-stats-grid">
           {stats.map((stat, idx) => (
             <div key={idx} className="about-stat-card">
-              <div className="about-stat-emoji">{stat.icon}</div>
               <div className="about-stat-number">{stat.number}</div>
               <div className="about-stat-label">{stat.label}</div>
             </div>
@@ -71,7 +115,6 @@ function About() {
           {/* About Us */}
           <div className="about-card">
             <div className="about-card-header">
-              <span className="about-emoji">🏢</span>
               <h2>About Us</h2>
             </div>
             <div className="about-card-content">
@@ -91,7 +134,6 @@ function About() {
           {/* Who We Are */}
           <div className="about-card">
             <div className="about-card-header">
-              <span className="about-emoji">🌟</span>
               <h2>Who We Are</h2>
             </div>
             <div className="about-card-content">
@@ -103,6 +145,21 @@ function About() {
                 showroom, or industrial facility, we ensure every project is executed with precision,
                 safety, and efficiency.
               </p>
+            </div>
+          </div>
+
+          {/* What We Handle */}
+          <div className="about-card about-card--full">
+            <div className="about-card-header">
+              <h2>What We Handle</h2>
+            </div>
+            <div className="about-services-grid">
+              {services.map((service, idx) => (
+                <div key={idx} className="about-service-item">
+                  <h3>{service.title}</h3>
+                  <p>{service.description}</p>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -129,37 +186,31 @@ function About() {
             </div>
             <div className="about-features-grid">
               <div className="about-feature">
-                <span className="about-feature-emoji">👨‍🔧</span>
                 <h3>Experienced Engineers & Certified Technicians</h3>
                 <p>Skilled professionals with years of industry experience</p>
               </div>
 
               <div className="about-feature">
-                <span className="about-feature-emoji">📍</span>
                 <h3>Serving All Areas of Hyderabad</h3>
                 <p>Fast and reliable service across the entire city</p>
               </div>
 
               <div className="about-feature">
-                <span className="about-feature-emoji">💸</span>
                 <h3>Transparent Pricing</h3>
                 <p>No hidden charges – clear and honest quotes</p>
               </div>
 
               <div className="about-feature">
-                <span className="about-feature-emoji">⚡</span>
                 <h3>Fast Response & Same-Day Service</h3>
                 <p>Quick turnaround for urgent cooling needs</p>
               </div>
 
               <div className="about-feature">
-                <span className="about-feature-emoji">♻️</span>
                 <h3>Eco-Friendly Practices</h3>
                 <p>Responsible recycling and sustainable solutions</p>
               </div>
 
               <div className="about-feature">
-                <span className="about-feature-emoji">💯</span>
                 <h3>Customer Satisfaction Guaranteed</h3>
                 <p>Your comfort is our top priority</p>
               </div>
@@ -175,9 +226,7 @@ function About() {
               {testimonials.map((testimonial, idx) => (
                 <div key={idx} className="about-testimonial-card">
                   <div className="about-testimonial-rating">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <span key={i} className="about-star">⭐</span>
-                    ))}
+                    <span>{testimonial.rating}/5</span>
                   </div>
                   <p className="about-testimonial-content">"{testimonial.content}"</p>
                   <div className="about-testimonial-author">
@@ -199,6 +248,15 @@ function About() {
             <a href="/contact" className="about-cta-button">
               Get in Touch Today
             </a>
+          </div>
+
+          <div className="about-value-strip">
+            {valuePillars.map((pillar, idx) => (
+              <div key={idx} className="about-value-item">
+                <h3>{pillar.title}</h3>
+                <p>{pillar.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
