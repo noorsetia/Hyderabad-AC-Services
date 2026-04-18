@@ -1,6 +1,13 @@
-function ServiceCard({ icon, title, description, cta = "Learn More", onLearnMore, image }) {
+function ServiceCard({ icon, title, description, cta = "Learn More", onLearnMore, image, isActive = false }) {
+  const handleLearnMore = (event) => {
+    event.preventDefault();
+    if (onLearnMore) {
+      onLearnMore();
+    }
+  };
+
   return (
-    <article className="service-card" aria-label={title}>
+    <article className={`service-card${isActive ? " is-active" : ""}`} aria-label={title}>
       {image && (
         <div 
           className="service-card-image" 
@@ -21,15 +28,15 @@ function ServiceCard({ icon, title, description, cta = "Learn More", onLearnMore
         <h3 className="service-card-title">{title}</h3>
         <p className="service-card-description">{description}</p>
         
-        <button 
-          type="button" 
-          className="service-card-cta" 
-          onClick={onLearnMore} 
+        <a
+          href="#"
+          className="service-card-cta"
+          onClick={handleLearnMore}
           aria-label={`${cta} about ${title}`}
         >
           <span>{cta}</span>
           <span className="arrow">→</span>
-        </button>
+        </a>
       </div>
     </article>
   );
