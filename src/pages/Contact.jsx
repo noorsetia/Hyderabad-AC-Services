@@ -1,148 +1,88 @@
-import React, { useState } from "react";
-import "./Contact.css";
-import { FiPhone, FiMapPin, FiCalendar } from "react-icons/fi";
+import ContactForm from "../components/ContactForm";
+import Footer from "../components/Footer";
 
 function ContactPage() {
-  const [formState, setFormState] = useState({ name: "", phone: "", message: "" });
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
-    setFormState({ name: "", phone: "", message: "" });
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormState((prev) => ({ ...prev, [name]: value }));
-  };
-
   return (
-    <div className="page-container">
-      <div className="page-content">
-        <div className="contact-hero-section">
-          <div className="header-badge-wrapper">
-            <span className="asetize-badge badge-cyan hero-badge">CONTACT US</span>
-          </div>
-          <h1 className="hero-heading">
-            Send an inquiry and get a quick<br />
-            response from Hyderabad AC Services
-          </h1>
-          <p className="hero-subheading">
-            Share your requirement and our team will connect with you to discuss installation,<br />
-            maintenance, or repair support.
-          </p>
-        </div>
+    <div className="contact-page">
+      <section className="contact-hero">
+        <p className="services-kicker">Contact Us</p>
+        <h1>Send an inquiry and get a quick response from Hyderabad AC Services</h1>
+        <p>
+          Share your requirement and our team will connect with you to discuss installation,
+          maintenance, or repair support.
+        </p>
+      </section>
 
-        <div className="asetize-grid">
-          
-          {/* Left Card: Form */}
-        <div className="asetize-card">
-          <div className="asetize-badge badge-cyan">QUICK INQUIRY</div>
-          <h1 className="asetize-heading">Tell us what you need</h1>
-          <p className="asetize-subheading">
-            Use the form below for a fast callback from our support team.
-          </p>
-          
-          <form className="asetize-form" onSubmit={handleSubmit}>
-            <div className="asetize-input-group">
-              <label className="asetize-label">Name</label>
-              <input 
-                type="text" 
-                name="name"
-                value={formState.name}
-                onChange={handleChange}
-                className="asetize-input" 
-                placeholder="Your full name"
-                required
-              />
-            </div>
-            
-            <div className="asetize-input-group">
-              <label className="asetize-label">Phone</label>
-              <input 
-                type="tel" 
-                name="phone"
-                value={formState.phone}
-                onChange={handleChange}
-                className="asetize-input" 
-                placeholder="10-digit phone number"
-                required
-              />
-            </div>
-            
-            <div className="asetize-input-group">
-              <label className="asetize-label">Message</label>
-              <textarea 
-                name="message"
-                value={formState.message}
-                onChange={handleChange}
-                className="asetize-input asetize-textarea" 
-                placeholder="Briefly describe your AC requirement"
-                required
-              />
+      <section className="contact-section contact-section--page">
+        <div className="contact-grid">
+          <div className="contact-card contact-card--form">
+            <div className="contact-card-header">
+              <div className="contact-badge">Quick Inquiry</div>
+              <h3>Tell us what you need</h3>
+              <p>Use the form below for a fast callback from our support team.</p>
             </div>
 
-            <button type="submit" className="asetize-submit">
-              {submitted ? "Sent!" : "Send Message"}
-            </button>
-          </form>
-        </div>
-
-        {/* Right Card: Info */}
-        <div className="asetize-card">
-          <div className="asetize-badge badge-gray">BUSINESS INFO</div>
-          <h2 className="asetize-heading">Hyderabad AC Services</h2>
-          <p className="asetize-subheading">
-            Trusted AC installation, maintenance, and repair services in Hyderabad.
-          </p>
-
-          <div className="asetize-info-list">
-            <div className="info-item">
-              <div className="info-icon-wrapper">
-                <FiPhone size={18} />
-              </div>
-              <div className="info-content">
-                <span className="info-label">PHONE</span>
-                <span className="info-value">+91 XXXXX XXXXX</span>
-              </div>
-            </div>
-
-            <div className="info-item">
-              <div className="info-icon-wrapper">
-                <FiMapPin size={18} />
-              </div>
-              <div className="info-content">
-                <span className="info-label">LOCATION</span>
-                <span className="info-value">Hyderabad, India</span>
-              </div>
-            </div>
-
-            <div className="info-item">
-              <div className="info-icon-wrapper">
-                <FiCalendar size={18} />
-              </div>
-              <div className="info-content">
-                <span className="info-label">WORKING HOURS</span>
-                <span className="info-value">9 AM - 9 PM</span>
-              </div>
-            </div>
+            <ContactForm />
           </div>
 
-          <div className="why-box">
-            <h3 className="why-heading">Why customers call us</h3>
-            <ul className="why-list">
-              <li>Prompt response for residential and commercial requests</li>
-              <li>Professional service with clear communication</li>
-              <li>Flexible support for maintenance and emergency repairs</li>
-            </ul>
-          </div>
+          <aside className="contact-card contact-card--info" aria-label="Business information">
+            <div className="contact-card-header">
+              <div className="contact-badge contact-badge--alt">Business Info</div>
+              <h3>Hyderabad AC Services</h3>
+              <p>Trusted AC installation, maintenance, and repair services in Hyderabad.</p>
+            </div>
 
+            <div className="contact-info-list">
+              <div className="contact-info-item">
+                <span className="contact-info-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M6.6 10.8a15.2 15.2 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1.02-.24c1.1.37 2.29.57 3.52.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C11.85 21 3 12.15 3 1a1 1 0 0 1 1-1h3.2a1 1 0 0 1 1 1c0 1.23.2 2.42.57 3.52a1 1 0 0 1-.24 1.02L6.6 10.8Z" fill="currentColor" />
+                  </svg>
+                </span>
+                <div>
+                  <span>Phone</span>
+                  <strong>+91 87123 22475</strong>
+                </div>
+              </div>
+
+              <div className="contact-info-item">
+                <span className="contact-info-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Zm0 9.3A2.3 2.3 0 1 1 12 6.7a2.3 2.3 0 0 1 0 4.6Z" fill="currentColor" />
+                  </svg>
+                </span>
+                <div>
+                  <span>Location</span>
+                  <strong>Hyderabad, India</strong>
+                </div>
+              </div>
+
+              <div className="contact-info-item">
+                <span className="contact-info-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M7 2h2v2H7V2Zm8 0h2v2h-2V2ZM5 6h14a1 1 0 0 1 1 1v12a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a1 1 0 0 1 1-1Zm0 4h14V8H5v2Zm0 3v6a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-6H5Z" fill="currentColor" />
+                  </svg>
+                </span>
+                <div>
+                  <span>Working Hours</span>
+                  <strong>9 AM – 9 PM</strong>
+                </div>
+              </div>
+            </div>
+
+            <div className="contact-trust-box">
+              <h4>Why customers call us</h4>
+              <ul>
+                <li>Prompt response for residential and commercial requests</li>
+                <li>Professional service with clear communication</li>
+                <li>Flexible support for maintenance and emergency repairs</li>
+              </ul>
+            </div>
+          </aside>
         </div>
+      </section>
 
-      </div>
-      </div>
+      <Footer />
     </div>
   );
 }
