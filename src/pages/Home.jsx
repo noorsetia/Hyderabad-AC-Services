@@ -4,13 +4,8 @@ import Footer from "../components/Footer";
 import Testimonials from "../components/Testimonials";
 import FAQ from "../components/FAQ";
 import CTA from "../components/CTA";
-import { siteContent } from "../data/siteContent";
+ import { siteContent } from "../data/siteContent";
 import heroBackground from "../assets/hero-ac-bg.jpg";
-
-const serviceGroups = [
-  { title: "Air Conditioning", items: siteContent.airConditioningServices },
-  { title: "Exhaust", items: siteContent.exhaustServices },
-];
 
 function Home() {
   const heroSummary =
@@ -113,32 +108,6 @@ function Home() {
               Call: {siteContent.phoneDisplay}
             </a>
           </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section className="home-section" id="services">
-        <div className="section-heading">
-          <p className="eyebrow">Our Services</p>
-          <h2>Expert AC Solutions for Every Space</h2>
-          <p>Professional air conditioning and exhaust solutions across Hyderabad</p>
-        </div>
-
-        <div className="page-grid page-grid--two">
-          {serviceGroups.map((group) => (
-            <article className="page-card" key={group.title}>
-              <p className="page-kicker">{group.title}</p>
-              <h3>{group.title} Services</h3>
-              <ul className="page-list">
-                {group.items.map((item) => (
-                  <li key={item}>✓ {item}</li>
-                ))}
-              </ul>
-              <Link className="home-inline-link" to="/contact">
-                Book this service →
-              </Link>
-            </article>
-          ))}
         </div>
       </section>
 

@@ -5,6 +5,7 @@ import "./Navbar.css";
 
 const navItems = [
   { id: "home", label: "Home", to: "/" },
+  { id: "services", label: "Services", to: "/services" },
   { id: "about", label: "About Us", to: "/about" },
   { id: "services", label: "Services", to: "/#services", hashId: "services" },
   { id: "contact", label: "Contact", to: "/contact" },
@@ -59,22 +60,6 @@ function Navbar() {
     setIsMenuOpen(false);
   }, [location.pathname, location.hash]);
 
-  useEffect(() => {
-    if (location.pathname !== "/" || !location.hash) {
-      return;
-    }
-
-    const targetId = location.hash.slice(1);
-    const section = document.getElementById(targetId);
-    if (!section) {
-      return;
-    }
-
-    window.requestAnimationFrame(() => {
-      section.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-  }, [location.pathname, location.hash]);
-
   const handleBrandClick = (event) => {
     setIsMenuOpen(false);
 
@@ -87,30 +72,13 @@ function Navbar() {
   const handleNavItemClick = (item) => (event) => {
     setIsMenuOpen(false);
 
-    if (item.hashId) {
-      if (location.pathname === "/") {
-        event.preventDefault();
-        const section = document.getElementById(item.hashId);
-        if (section) {
-          section.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      }
-      return;
-    }
-
     if (location.pathname === item.to) {
       event.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
-  const isActiveItem = (item) => {
-    if (item.hashId) {
-      return location.pathname === "/" && location.hash === `#${item.hashId}`;
-    }
-
-    return location.pathname === item.to;
-  };
+  const isActiveItem = (item) => location.pathname === item.to;
 
   return (
     <header className={`site-header ${isScrolled ? "site-header--scrolled" : ""}`} ref={headerRef}>
