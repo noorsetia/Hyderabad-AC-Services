@@ -78,7 +78,7 @@ function ContactPage() {
   return (
     <div className="contact-page">
       <section className="contact-hero">
-        <p className="eyebrow">{copy.eyebrow}</p>
+        <span className="eyebrow" style={{ marginBottom: "0.2rem" }}>{copy.eyebrow}</span>
         <h1>{copy.title}</h1>
         <p>{copy.description}</p>
       </section>

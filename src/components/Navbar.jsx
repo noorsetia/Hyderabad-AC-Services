@@ -70,14 +70,92 @@ const uiTranslations = {
     callAriaPrefix: "Call",
     logoSuffix: "logo",
   },
+  ar: {
+    home: "الرئيسية",
+    services: "خدماتنا",
+    about: "معلومات عنا",
+    blog: "مدونة",
+    contact: "اتصل بنا",
+    bookNow: "احجز الآن",
+    language: "Language",
+    dark: "داكن",
+    light: "مضيء",
+    openMenu: "افتح قائمة التنقل",
+    closeMenu: "أغلق قائمة التنقل",
+    primaryNavigation: "التنقل الأساسي",
+    selectLanguage: "اختر اللغة",
+    switchThemeTo: "التبديل إلى",
+    theme: "السمة",
+    callAriaPrefix: "Call",
+    logoSuffix: "logo",
+  },
+  kn: {
+    home: "ಮುಖಪುಟ",
+    services: "ಸೇವೆಗಳು",
+    about: "ನಮ್ಮ ಬಗ್ಗೆ",
+    blog: "ಬ್ಲಾಗ್",
+    contact: "ಸಂಪರ್ಕಿಸಿ",
+    bookNow: "ಬುಕ್ ಮಾಡಿ",
+    language: "Language",
+    dark: "ಡಾರ್ಕ್",
+    light: "ಲೈಟ್",
+    openMenu: "ನ್ಯಾವಿಗೇಷನ್ ಮೆನುವನ್ನು ತೆರೆಯಿರಿ",
+    closeMenu: "ನ್ಯಾವಿಗೇಷನ್ ಮೆನುವನ್ನು ಮುಚ್ಚಿ",
+    primaryNavigation: "ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್",
+    selectLanguage: "ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ",
+    switchThemeTo: "ಬದಲಾಯಿಸಿ",
+    theme: "ಥೀಮ್",
+    callAriaPrefix: "Call",
+    logoSuffix: "logo",
+  },
+  ml: {
+    home: "ഹോം",
+    services: "സേവനങ്ങൾ",
+    about: "ഞങ്ങളെ കുറിച്ച്",
+    blog: "ബ്ലോഗ്",
+    contact: "ബന്ധപ്പെടുക",
+    bookNow: "ബുക്ക് ചെയ്യുക",
+    language: "Language",
+    dark: "ഡാർക്ക്",
+    light: "ലൈറ്റ്",
+    openMenu: "നാവിഗേഷൻ മെനു തുറക്കുക",
+    closeMenu: "നാവിഗേഷൻ മെനു അടയ്ക്കുക",
+    primaryNavigation: "പ്രാഥമിക നാവിഗേഷൻ",
+    selectLanguage: "ഭാഷ തിരഞ്ഞെടുക്കുക",
+    switchThemeTo: "മാറുക",
+    theme: "തീം",
+    callAriaPrefix: "Call",
+    logoSuffix: "logo",
+  },
+  ta: {
+    home: "முகப்பு",
+    services: "சேவைகள்",
+    about: "எங்களை பற்றி",
+    blog: "வலைப்பதிவு",
+    contact: "தொடர்பு கொள்ள",
+    bookNow: "முன்பதிவு செய்",
+    language: "Language",
+    dark: "டார்க்",
+    light: "லைட்",
+    openMenu: "வழிசெலுத்தல் மெனுவைத் திற",
+    closeMenu: "வழிசெலுத்தல் மெனுவை மூடு",
+    primaryNavigation: "முதன்மை வழிசெலுத்தல்",
+    selectLanguage: "மொழியைத் தேர்ந்தெடு",
+    switchThemeTo: "மாற்று",
+    theme: "தீம்",
+    callAriaPrefix: "Call",
+    logoSuffix: "logo",
+  },
 };
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLangOpen, setIsLangOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { language, setLanguage, theme, setTheme, languageOptions } = useAppPreferences();
   const location = useLocation();
   const headerRef = useRef(null);
+  const langDropdownRef = useRef(null);
   const siteContent = getLocalizedSiteContent(language);
 
   useEffect(() => {
@@ -100,11 +178,15 @@ function Navbar() {
       if (headerRef.current && !headerRef.current.contains(event.target)) {
         setIsMenuOpen(false);
       }
+      if (langDropdownRef.current && !langDropdownRef.current.contains(event.target)) {
+        setIsLangOpen(false);
+      }
     };
 
     const handleEscape = (event) => {
       if (event.key === "Escape") {
         setIsMenuOpen(false);
+        setIsLangOpen(false);
       }
     };
 
@@ -117,7 +199,7 @@ function Navbar() {
       document.removeEventListener("touchstart", handlePointerDown);
       window.removeEventListener("keydown", handleEscape);
     };
-  }, [isMenuOpen]);
+  }, [isMenuOpen, isLangOpen]);
 
   useEffect(() => {
     setIsMenuOpen(false);
@@ -203,21 +285,51 @@ function Navbar() {
               ))}
 
               <li className="navbar__menu-controls">
-                <label className="navbar__language" htmlFor="navbar-language-select">
-                  <span>{labels.language}</span>
-                  <select
-                    id="navbar-language-select"
-                    value={language}
-                    onChange={(event) => setLanguage(event.target.value)}
+                <div className="navbar__language-proxy notranslate" ref={langDropdownRef}>
+                  <button 
+                    type="button"
+                    className={`navbar__language-toggle ${isLangOpen ? "navbar__language-toggle--open" : ""}`}
+                    onClick={() => setIsLangOpen(!isLangOpen)}
+                    aria-haspopup="listbox"
+                    aria-expanded={isLangOpen}
                     aria-label={labels.selectLanguage}
                   >
+                    <span>{labels.language}</span>
+                    <span className="navbar__language-current">
+                      {languageOptions.find(opt => opt.value === language)?.label || language}
+                    </span>
+                    <svg className="navbar__language-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </button>
+
+                  <ul 
+                    className={`navbar__language-dropdown ${isLangOpen ? "navbar__language-dropdown--open" : ""}`}
+                    role="listbox"
+                  >
                     {languageOptions.map((option) => (
-                      <option key={option.value} value={option.value}>
-                        {option.label}
-                      </option>
+                      <li key={option.value} role="none">
+                        <button
+                          type="button"
+                          className="navbar__language-option"
+                          aria-selected={language === option.value}
+                          role="option"
+                          onClick={() => {
+                            setLanguage(option.value);
+                            setIsLangOpen(false);
+                          }}
+                        >
+                          <span className="navbar__language-optlabel">{option.label}</span>
+                          {language === option.value && (
+                            <svg className="navbar__language-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                              <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                          )}
+                        </button>
+                      </li>
                     ))}
-                  </select>
-                </label>
+                  </ul>
+                </div>
 
                 <button
                   type="button"

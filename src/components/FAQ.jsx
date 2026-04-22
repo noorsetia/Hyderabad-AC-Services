@@ -66,7 +66,7 @@ function FAQ({ items }) {
     <section className="faq-section">
       <div className="faq-container">
         <div className="faq-header">
-          <p className="eyebrow">{copy.eyebrow}</p>
+          <span className="eyebrow" style={{ marginBottom: "0.2rem" }}>{copy.eyebrow}</span>
           <h2>{copy.title}</h2>
           <p className="faq-subtitle">{copy.subtitle}</p>
         </div>

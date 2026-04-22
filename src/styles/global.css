@@ -519,6 +519,7 @@ body[data-theme="dark"] .app-shell {
 
 .home-cta .eyebrow,
 .page-cta .eyebrow {
+  margin: 0;
   color: var(--secondary);
 }
 
@@ -848,7 +849,8 @@ body[data-theme="dark"] .app-shell {
   animation: fadeInUp 0.65s ease;
 }
 
-.services-kicker {
+.services-kicker,
+.eyebrow {
   display: inline-block;
   margin: 0;
   padding: 0.5rem 1.2rem;
@@ -861,6 +863,12 @@ body[data-theme="dark"] .app-shell {
   text-transform: uppercase;
   border-radius: 50px;
   border: 1px solid rgba(0, 174, 221, 0.25);
+}
+
+/* Override container styles for eyebrow where needed */
+.contact-hero p.eyebrow {
+  margin: 0 auto;
+  color: var(--secondary);
 }
 
 .services-title {
@@ -2105,21 +2113,23 @@ body[data-theme="dark"] .app-shell {
 
 .contact-submit-button {
   justify-self: start;
-  border: 0;
-  border-radius: 999px;
-  background: var(--secondary);
-  color: #ffffff;
-  font: inherit;
+  border: 1px solid rgba(0, 174, 221, 0.25);
+  border-radius: 50px;
+  background: rgba(0, 174, 221, 0.1);
+  color: var(--secondary);
+  font-family: "Poppins", sans-serif;
+  font-size: 0.86rem;
   font-weight: 700;
-  padding: 0.95rem 1.45rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.5rem 1.2rem;
   cursor: pointer;
-  box-shadow: 0 16px 30px rgba(0, 174, 221, 0.24);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease, background-color 0.2s ease;
 }
 
 .contact-submit-button:hover {
   transform: translateY(-2px) scale(1.01);
-  box-shadow: 0 20px 34px rgba(0, 174, 221, 0.28);
+  background-color: rgba(0, 174, 221, 0.2);
 }
 
 .contact-submit-button:focus-visible,
@@ -2861,10 +2871,16 @@ body[data-theme="dark"] .services-shell {
   box-shadow: 0 18px 38px rgba(2, 10, 20, 0.44);
 }
 
-body[data-theme="dark"] .services-kicker {
+body[data-theme="dark"] .services-kicker,
+body[data-theme="dark"] .eyebrow,
+body[data-theme="dark"] .contact-submit-button {
   background: rgba(11, 78, 118, 0.3);
   border-color: rgba(99, 178, 231, 0.4);
   color: #93dcff;
+}
+
+body[data-theme="dark"] .contact-submit-button:hover {
+  background-color: rgba(11, 78, 118, 0.45);
 }
 
 body[data-theme="dark"] .services-title,
@@ -3039,7 +3055,6 @@ body[data-theme="dark"] .booking-back-button:hover {
 body[data-theme="dark"] .booking-submit-button,
 body[data-theme="dark"] .services-bottom-cta-button,
 body[data-theme="dark"] .service-band-cta,
-body[data-theme="dark"] .contact-submit-button,
 body[data-theme="dark"] .quote-submit-button,
 body[data-theme="dark"] .quote-success-button {
   background: linear-gradient(135deg, #1797cf, #0c75b4);
@@ -3048,14 +3063,12 @@ body[data-theme="dark"] .quote-success-button {
 body[data-theme="dark"] .booking-submit-button:hover,
 body[data-theme="dark"] .services-bottom-cta-button:hover,
 body[data-theme="dark"] .service-band-cta:hover,
-body[data-theme="dark"] .contact-submit-button:hover,
 body[data-theme="dark"] .quote-submit-button:hover,
 body[data-theme="dark"] .quote-success-button:hover {
   background: linear-gradient(135deg, #12a3df, #0d7ec3);
 }
 
 body[data-theme="dark"] .booking-footnote a,
-body[data-theme="dark"] .contact-submit-button,
 body[data-theme="dark"] .service-details-kicker,
 body[data-theme="dark"] .service-details-stat span,
 body[data-theme="dark"] .service-details-cta,
