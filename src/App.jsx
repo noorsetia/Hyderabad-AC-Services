@@ -8,14 +8,14 @@ import ServicesPage from "./pages/Services";
 import BlogsPage from "./pages/Blogs";
 import BlogPostPage from "./pages/BlogPost";
 
-// New service pages
-import AcRepair from "./pages/services/AcRepair";
+// Service Pages (merged cleanly)
 import AcService from "./pages/services/AcService";
+import AcRepair from "./pages/services/AcRepair";
 import CentralizedAc from "./pages/services/CentralizedAc";
 import CopperPiping from "./pages/services/CopperPiping";
 import Ducting from "./pages/services/Ducting";
 
-// Stub service pages from main branch
+// Additional service pages (from both branches)
 import AcGasLeak from "./pages/services/AcGasLeak";
 import AcInstallation from "./pages/services/AcInstallation";
 import AcScrap from "./pages/services/AcScrap";
@@ -36,14 +36,14 @@ function App() {
         <Route path="/book-service" element={<BookServicePage />} />
         <Route path="/contact" element={<ContactPage />} />
 
-        {/* Our new service pages */}
+        {/* Service Pages */}
         <Route path="/services/ac-repair" element={<AcRepair />} />
         <Route path="/services/ac-service" element={<AcService />} />
         <Route path="/services/centralized-ac" element={<CentralizedAc />} />
         <Route path="/services/copper-piping" element={<CopperPiping />} />
         <Route path="/services/ducting" element={<Ducting />} />
 
-        {/* Other stubs from main */}
+        {/* Additional Service Routes */}
         <Route path="/services/centralized-air-conditioning" element={<CentralizedAirConditioning />} />
         <Route path="/services/copper-pipe-planning" element={<CopperPipePlanning />} />
         <Route path="/services/ac-gas-leak" element={<AcGasLeak />} />
