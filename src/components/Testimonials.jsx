@@ -162,7 +162,7 @@ function Testimonials() {
       <div className="testimonials-container">
         <div className="testimonials-header">
           <div>
-            <p className="eyebrow">{copy.eyebrow}</p>
+            <span className="eyebrow" style={{ marginBottom: "0.2rem" }}>{copy.eyebrow}</span>
             <h2>{copy.title}</h2>
             <p className="testimonials-subtitle">
               {copy.subtitle}

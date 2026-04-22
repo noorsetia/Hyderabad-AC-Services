@@ -154,18 +154,13 @@ function Footer() {
           </div>
         </div>
 
-        <div className="footer-bottom">
-          <div className="footer-bottom-left">
-            <Link to="/privacy">Privacy & Policy</Link> <span className="separator">|</span> <Link to="/sitemap">Sitemap</Link>
-          </div>
-          <div className="footer-bottom-center">
-            <p>© Copyright Hyderabad Ac Services 2021, <span className="footer-bottom-center-highlight">Designed By: MSN Technologies</span></p>
-          </div>
-          <button type="button" className="footer-top-link" onClick={handleBackToTop}>
-            Back to top
-          </button>
-        </div>
+              <div className="footer-bottom">
+        <p>© {labels.copyright}</p>
+        <button type="button" className="footer-top-link" onClick={handleBackToTop}>
+          {labels.backToTop}
+        </button>
       </div>
+    </div>
 
     </footer>
   );
