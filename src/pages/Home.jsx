@@ -10,8 +10,9 @@ import HomeSection from "../components/home/HomeSection";
 import { blogs } from "../data/blogs";
 import { useAppPreferences } from "../context/AppPreferencesContext";
 import { getLocalizedSiteContent } from "../data/localizedSiteContent";
-import heroBackground from "../assets/hero-ac-bg.jpg";
 import "../styles/home.css";
+
+const heroBackground = "/images/Background.png";
 
 const partnerBrands = [
   { name: "Voltas", logo: "/images/partners/voltas-logo.svg" },
@@ -503,12 +504,25 @@ function Home() {
         description={copy.collaboratorsDescription}
         revealClass="home-reveal-delay-1"
       >
-        <div className="home-modern-grid home-modern-grid--logos">
-          {partnerBrands.map((brand, index) => (
-            <HomeCard key={brand.name} className="home-modern-logo-card" revealClass={revealDelayClass(index + 1)}>
-              <img className="home-modern-logo-card__image" src={brand.logo} alt={`${brand.name} logo`} loading="lazy" />
-            </HomeCard>
-          ))}
+      
+        <div className="home-trusted-by__layout">
+          <div className="home-trusted-by__left">
+            <div className="home-trusted-by__logos home-modern-grid home-modern-grid--logos" aria-label={copy.collaboratorsTitle}>
+              {partnerBrands.map((brand, index) => (
+                <HomeCard
+                  key={brand.name}
+                  className="home-modern-logo-card home-trusted-by__logo-card"
+                  revealClass={revealDelayClass(index + 1)}
+                >
+                  <img className="home-modern-logo-card__image" src={brand.logo} alt={`${brand.name} logo`} loading="lazy" />
+                </HomeCard>
+              ))}
+            </div>
+          </div>
+
+          <div className="home-trusted-by__media">
+            <img src="/images/AC%20services.jpg" alt="Technician servicing an AC system" loading="lazy" />
+          </div>
         </div>
       </HomeSection>
 
