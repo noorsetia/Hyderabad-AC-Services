@@ -19,11 +19,26 @@
   margin-bottom: 10px;
 }
 
+<<<<<<< HEAD
 .service-page-subtitle {
   font-size: 1.4rem;
   font-weight: 700;
   color: #222;
   margin: 30px 0 15px;
+=======
+.service-page-quote {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.service-page-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+>>>>>>> ad2340f (save local changes before sync)
 }
 
 .service-page-content p {
@@ -31,10 +46,28 @@
   line-height: 1.6;
   margin-bottom: 15px;
   color: #444;
+<<<<<<< HEAD
+=======
+}
+
+.service-page-subtitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #111;
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+.service-page-text p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+>>>>>>> ad2340f (save local changes before sync)
 }
 
 .service-page-list {
   list-style: none;
+<<<<<<< HEAD
   padding-left: 0;
   margin-bottom: 25px;
 }
@@ -59,10 +92,38 @@
 }
 
 .service-page-list--dots li span.text {
+=======
+  padding: 0;
+  margin: 0 0 20px;
+}
+
+.service-page-list li {
+  position: relative;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.service-page-list--dots li {
+  padding-left: 18px;
+}
+
+.service-page-list--dots li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #0c84cc;
+  font-weight: 700;
+}
+
+.service-page-list--dots li .text {
+>>>>>>> ad2340f (save local changes before sync)
   color: #333;
 }
 
 .service-page-list--check li {
+<<<<<<< HEAD
   display: flex;
   align-items: flex-start;
 }
@@ -72,6 +133,51 @@
   color: #0c84cc;
   font-weight: bold;
   margin-right: 10px;
+=======
+  padding-left: 22px;
+}
+
+.service-page-list--check li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #0c84cc;
+  font-weight: 700;
+}
+
+.service-page-list--arrow li {
+  padding-left: 20px;
+}
+
+.service-page-list--arrow li::before {
+  content: '➤';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #0c84cc;
+}
+
+.service-page-list--icon {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.service-page-list--icon li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding-left: 0;
+}
+
+.service-page-list--icon .icon {
+  flex-shrink: 0;
+  width: 1.25rem;
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.5;
+>>>>>>> ad2340f (save local changes before sync)
 }
 
 .service-page-cta {
@@ -83,14 +189,26 @@
   background-color: #2b2b2b;
   color: #fff;
   padding: 12px 30px;
+<<<<<<< HEAD
   font-weight: bold;
   text-decoration: none;
   border-radius: 4px;
   transition: background-color 0.3s ease;
+=======
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+>>>>>>> ad2340f (save local changes before sync)
 }
 
 .service-page-button:hover {
   background-color: #000;
+<<<<<<< HEAD
+=======
+  color: #fff;
+>>>>>>> ad2340f (save local changes before sync)
 }
 
 .service-page-content--split {
@@ -108,9 +226,33 @@
   max-width: 500px;
 }
 
+<<<<<<< HEAD
 .service-page-brands {
   margin-top: 20px;
   font-weight: bold;
+=======
+.service-page-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.service-page-brands {
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+@media (min-width: 768px) {
+  .service-page-content--split {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .service-page-text {
+    padding-right: 40px;
+  }
+>>>>>>> ad2340f (save local changes before sync)
 }
 
 @media (max-width: 768px) {
