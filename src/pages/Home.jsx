@@ -119,10 +119,8 @@ const customerStatIcons = [
     </svg>
   ),
 ];
-<<<<<<< HEAD
-=======
 
->>>>>>> f42fbb1 (Updated hero section UI and form styling)
+
 const homeCopyByLanguage = {
   en: {
     heroBadge: "Google Rating 4.9",
@@ -149,16 +147,7 @@ const homeCopyByLanguage = {
         description: "Always available whenever you need help",
       },
     ],
-    trustBadges: ["Multi-Brand Specialists", "Transparent Pricing", "Emergency Support", "Verified Service Team"],
-    statsEyebrow: "",
-    statsTitle: "Trusted by Hundreds Across Hyderabad",
-    statsDescription:
-      "A quick overview of our trusted services, satisfied customers, and commitment to delivering reliable AC solutions across Hyderabad.",
-    stats: [
-      { value: 4.9, decimals: 1, label: "Google Rating", icon: "rating" },
-      { value: 500, suffix: "+", label: "Happy Customers", icon: "customers" },
-      { value: 10, suffix: "+", label: "Years Experience", icon: "experience" },
-      { value: 24, suffix: "/7", label: "24/7 Support", icon: "support" },
+
     trustBadges: ["Transparent Pricing", "Same-Day Service", "Verified Technicians"],
     statsEyebrow: "PROVEN TRACK RECORD",
     statsTitle: "By the Numbers",
@@ -169,10 +158,8 @@ const homeCopyByLanguage = {
       { value: 10, suffix: "+", label: "Years in Service", icon: customerStatIcons[2] },
       { value: 24, suffix: "/7", label: "Support", icon: customerStatIcons[3] },
     ],
-<<<<<<< HEAD
 
-=======
->>>>>>> f42fbb1 (Updated hero section UI and form styling)
+
     collaboratorsEyebrow: "TRUSTED BRANDS",
     collaboratorsTitle: "Premier Partners in Cooling Solutions",
     collaboratorsDescription: "We're certified partners with industry-leading manufacturers, ensuring the highest standards in installation and maintenance.",
@@ -184,7 +171,6 @@ const homeCopyByLanguage = {
     readArticle: "Read More",
     askGuidance: "Contact Our Team",
     serviceSupportEyebrow: "GET IN TOUCH",
-<<<<<<< HEAD
     collaboratorsEyebrow: "Our Collaborators",
     collaboratorsTitle: "Brands We Work With",
     collaboratorsDescription: "Trusted support for leading air conditioning brands across residential and commercial spaces.",
@@ -196,8 +182,6 @@ const homeCopyByLanguage = {
     readArticle: "Read article",
     askGuidance: "Ask our team for guidance",
     serviceSupportEyebrow: "Service Support",
-=======
->>>>>>> f42fbb1 (Updated hero section UI and form styling)
     serviceSupportTitle: "Contact & Location",
     phoneLabel: "Phone",
     emailLabel: "Email",
@@ -489,16 +473,17 @@ function Home() {
             backgroundRepeat: "no-repeat",
           }}
         >
-          <div className="home-modern-hero__left">
+          <div className="home-modern-hero__content">
+            <p className="home-modern-hero__badge">B2B HVAC Solutions</p>
+            <h1 className="home-modern-hero__title">
+              <span>Smart AC Solutions for</span>
+              <span>Modern Commercial Spaces</span>
+            </h1>
 
-<<<<<<< HEAD
-            <div className="home-modern-hero__content">
-              <p className="home-modern-hero__badge">Trusted HVAC Partner</p>
-              <h1 className="home-modern-hero__title">Reliable AC Solutions for Businesses & Commercial Spaces</h1>
-
-              <p className="home-modern-hero__summary">
-                End-to-end air conditioning services designed to ensure uninterrupted operations, energy efficiency, and long-term system performance.
-              </p>
+            <p className="home-modern-hero__summary">
+              We deliver energy-efficient HVAC solutions designed for performance, cost savings, and long-term reliability.
+            </p>
+          </div>
 
               <div className="home-modern-hero__actions">
                 <Link className="home-modern-button home-modern-button--primary" to="/contact">
@@ -516,40 +501,20 @@ function Home() {
                   </li>
                 ))}
               </ul>
-=======
-          <div className="home-modern-hero__content">
-            <p className="home-modern-hero__badge">B2B HVAC Solutions</p>
-            <h1 className="home-modern-hero__title">
-              <span>Smart AC Solutions for</span>
-              <span>Modern Commercial Spaces</span>
-            </h1>
-
-            <p className="home-modern-hero__summary">
-              We deliver energy-efficient HVAC solutions designed for performance, cost savings, and long-term reliability.
-            </p>
->>>>>>> f42fbb1 (Updated hero section UI and form styling)
-
-            </div>
-<<<<<<< HEAD
-=======
-
+          
             <ul className="home-modern-hero__trust-pills" aria-label="Business trust indicators">
               {enterpriseTrustIndicators.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
-
->>>>>>> f42fbb1 (Updated hero section UI and form styling)
           </div>
 
-<<<<<<< HEAD
           <div className="home-modern-hero__right">
             <form className="home-lead-card" onSubmit={(event) => event.preventDefault()}>
               <div className="home-lead-card__header">
                 <h2>Get Expert Consultation</h2>
                 <p>Share your details and our commercial HVAC team will respond promptly.</p>
               </div>
-=======
         <div className="home-modern-hero__right">
           <form className="home-lead-card home-lead-card--hero" onSubmit={(event) => event.preventDefault()}>
             <div className="home-lead-card__header">
@@ -557,7 +522,6 @@ function Home() {
               <h2>Tell us about your requirement</h2>
               <p>Call or WhatsApp our team for a faster response.</p>
             </div>
->>>>>>> f42fbb1 (Updated hero section UI and form styling)
 
               <div className="home-lead-card__grid">
                 <label>
@@ -565,7 +529,6 @@ function Home() {
                   <input type="text" name="name" placeholder="Your name" required />
                 </label>
 
-<<<<<<< HEAD
                 <label>
                   Email
                   <input type="email" name="email" placeholder="Your email" required />
@@ -576,7 +539,7 @@ function Home() {
                   <select name="serviceType" defaultValue="" required>
                     <option value="" disabled>
                       Select service type
-=======
+
               <label>
                 Company Name
                 <input type="text" name="company" placeholder="Your company or site name" required />
@@ -596,7 +559,6 @@ function Home() {
                   {heroServiceTypes.map((serviceType) => (
                     <option key={serviceType} value={serviceType}>
                       {serviceType}
->>>>>>> f42fbb1 (Updated hero section UI and form styling)
                     </option>
                     {heroServiceTypes.map((serviceType) => (
                       <option key={serviceType} value={serviceType}>
@@ -606,19 +568,16 @@ function Home() {
                   </select>
                 </label>
 
-<<<<<<< HEAD
                 <label className="home-lead-card__full">
                   Message
                   <textarea name="message" rows="4" placeholder="Tell us about your requirement" />
                 </label>
               </div>
-=======
               <label className="home-lead-card__full">
                 Message
                 <textarea name="message" rows="4" placeholder="Share timeline, location, service scope, or any special requirements." />
               </label>
             </div>
->>>>>>> f42fbb1 (Updated hero section UI and form styling)
 
               <button type="submit">Submit Request</button>
               <small>Your information is safe with us.</small>
@@ -626,18 +585,16 @@ function Home() {
           </div>
         </section>
 
-<<<<<<< HEAD
         <section className="home-trust-section home-reveal home-reveal-delay-1" data-reveal>
           <header className="home-trust-section__header">
             <p className="home-modern-eyebrow">{copy.trustEyebrow}</p>
             <h2 className="home-modern-section__title">{copy.trustTitle}</h2>
           </header>
-=======
+
       <section className="home-trust-section home-reveal home-reveal-delay-1" data-reveal>
         <header className="home-trust-section__header">
           <h2 className="home-modern-section__title">{copy.trustTitle}</h2>
         </header>
->>>>>>> f42fbb1 (Updated hero section UI and form styling)
 
           <div className="home-trust-grid">
             {trustHighlights.map((item, index) => (
@@ -647,7 +604,6 @@ function Home() {
                 </span>
                 <h3>{item.title}</h3>
 
-<<<<<<< HEAD
                 {index === 2 ? (
                   <p className="home-trust-card__stars" aria-label={copy.starAria}>
                     <span>★</span>
@@ -661,6 +617,7 @@ function Home() {
                 <p>{item.description}</p>
               </article>
             ))}
+
         <div className="home-trust-section__cta">
           <Link className="home-trust-section__cta-button" to="/book-service">
             Book AC Service
@@ -669,13 +626,11 @@ function Home() {
             Get Free Quote
           </Link>
         </div>
-=======
               <p>{item.description}</p>
             </article>
           ))}
         </div>
 
->>>>>>> f42fbb1 (Updated hero section UI and form styling)
       </section>
 
       <AnimatedStats
@@ -727,7 +682,6 @@ function Home() {
           </div>
         </section>
 
-<<<<<<< HEAD
         <AnimatedStats
           eyebrow={copy.statsEyebrow}
           title={copy.statsTitle}
@@ -756,7 +710,7 @@ function Home() {
                     <img className="home-modern-logo-card__image" src={brand.logo} alt={`${brand.name} logo`} loading="lazy" />
                   </HomeCard>
                 ))}
-=======
+
       <HomeSection
         id="services"
         className="home-modern-section--services"
@@ -832,7 +786,6 @@ function Home() {
                 <Link className="home-modern-blog-link" to={post.slug ? `/blog/${post.slug}` : "/blog"}>
                   {copy.readArticle}
                 </Link>
->>>>>>> f42fbb1 (Updated hero section UI and form styling)
               </div>
             </div>
 
@@ -899,7 +852,6 @@ function Home() {
                 <div className="home-modern-blog-card__content">
                   <h3>{post.title}</h3>
 
-<<<<<<< HEAD
                   <Link className="home-modern-blog-link" to={post.slug ? `/blog/${post.slug}` : "/blog"}>
                     {copy.readArticle}
                   </Link>
@@ -923,9 +875,7 @@ function Home() {
         <ContactSectionPremium />
 
       </div>
-=======
             </div>
->>>>>>> f42fbb1 (Updated hero section UI and form styling)
       <Footer />
     </>
   );
