@@ -669,9 +669,15 @@
 }
 
 .home-modern-grid--blog {
+<<<<<<< HEAD
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(1.2rem, 2vw, 1.8rem);
   margin-top: clamp(2rem, 3.5vw, 3rem);
+=======
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.9rem, 1.6vw, 1.2rem);
+  margin-top: clamp(1.15rem, 2vw, 1.65rem);
+>>>>>>> parent of 2cb5dd7 (feat: modernize UI/UX and pivot to B2B enterprise focus)
 }
 
 .home-modern-card {

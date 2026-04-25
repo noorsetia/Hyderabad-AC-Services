@@ -85,6 +85,7 @@ const trustHighlightIcons = [
   ),
 ];
 
+<<<<<<< HEAD
 const customerStatIcons = [
   (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
@@ -111,6 +112,8 @@ const customerStatIcons = [
   ),
 ];
 
+=======
+>>>>>>> parent of 2cb5dd7 (feat: modernize UI/UX and pivot to B2B enterprise focus)
 const homeCopyByLanguage = {
   en: {
     heroBadge: "Google Rating 4.9",
@@ -148,6 +151,7 @@ const homeCopyByLanguage = {
       { value: 10, suffix: "+", label: "Years in Service", icon: customerStatIcons[2] },
       { value: 24, suffix: "/7", label: "Support", icon: customerStatIcons[3] },
     ],
+<<<<<<< HEAD
     collaboratorsEyebrow: "TRUSTED BRANDS",
     collaboratorsTitle: "Premier Partners in Cooling Solutions",
     collaboratorsDescription: "We're certified partners with industry-leading manufacturers, ensuring the highest standards in installation and maintenance.",
@@ -159,6 +163,19 @@ const homeCopyByLanguage = {
     readArticle: "Read More",
     askGuidance: "Contact Our Team",
     serviceSupportEyebrow: "GET IN TOUCH",
+=======
+    collaboratorsEyebrow: "Our Collaborators",
+    collaboratorsTitle: "Brands We Work With",
+    collaboratorsDescription: "Trusted support for leading air conditioning brands across residential and commercial spaces.",
+    serviceFocusEyebrow: "Service Focus",
+    serviceFocusTitle: "Professional Cooling Services with Better Coverage",
+    latestArticlesEyebrow: "Latest Articles",
+    latestArticlesTitle: "Helpful Tips & Resources",
+    latestArticlesDescription: "Learn more about AC maintenance, installation, and care",
+    readArticle: "Read article",
+    askGuidance: "Ask our team for guidance",
+    serviceSupportEyebrow: "Service Support",
+>>>>>>> parent of 2cb5dd7 (feat: modernize UI/UX and pivot to B2B enterprise focus)
     serviceSupportTitle: "Contact & Location",
     phoneLabel: "Phone",
     emailLabel: "Email",
