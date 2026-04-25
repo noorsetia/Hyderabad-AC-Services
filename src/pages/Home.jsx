@@ -99,15 +99,15 @@ const homeCopyByLanguage = {
       },
     ],
     trustBadges: ["Multi-Brand Specialists", "Transparent Pricing", "Emergency Support", "Verified Service Team"],
-    statsEyebrow: "Service Numbers",
-    statsTitle: "Numbers That Reflect Consistent Cooling Support",
+    statsEyebrow: "",
+    statsTitle: "Trusted by Hundreds Across Hyderabad",
     statsDescription:
-      "A quick snapshot of the reliability, customer trust, and always-on support that shape our AC service experience across Hyderabad.",
+      "A quick overview of our trusted services, satisfied customers, and commitment to delivering reliable AC solutions across Hyderabad.",
     stats: [
-      { value: 4.9, decimals: 1, label: "Google Rating" },
-      { value: 500, suffix: "+", label: "Happy Customers" },
-      { value: 10, suffix: "+", label: "Years Experience" },
-      { value: 24, suffix: "/7", label: "Direct Support" },
+      { value: 4.9, decimals: 1, label: "Google Rating", icon: "rating" },
+      { value: 500, suffix: "+", label: "Happy Customers", icon: "customers" },
+      { value: 10, suffix: "+", label: "Years Experience", icon: "experience" },
+      { value: 24, suffix: "/7", label: "24/7 Support", icon: "support" },
     ],
     collaboratorsEyebrow: "Our Collaborators",
     collaboratorsTitle: "Brands We Work With",
@@ -178,15 +178,15 @@ const homeCopyByLanguage = {
       },
     ],
     trustBadges: ["मल्टी-ब्रांड विशेषज्ञ", "पारदर्शी मूल्य", "इमरजेंसी सहायता", "सत्यापित टीम"],
-    statsEyebrow: "सेवा आंकड़े",
-    statsTitle: "वे नंबर जो हमारी भरोसेमंद सेवा दिखाते हैं",
+    statsEyebrow: "",
+    statsTitle: "सेवा आंकड़े",
     statsDescription:
       "रेटिंग से लेकर उपलब्ध सहायता तक, ये आंकड़े हैदराबाद में हमारी लगातार और भरोसेमंद एसी सेवा को दर्शाते हैं।",
     stats: [
-      { value: 4.9, decimals: 1, label: "गूगल रेटिंग" },
-      { value: 500, suffix: "+", label: "संतुष्ट ग्राहक" },
-      { value: 10, suffix: "+", label: "सालों का अनुभव" },
-      { value: 24, suffix: "/7", label: "सीधा सहायता" },
+      { value: 4.9, decimals: 1, label: "गूगल रेटिंग", icon: "rating" },
+      { value: 500, suffix: "+", label: "संतुष्ट ग्राहक", icon: "customers" },
+      { value: 10, suffix: "+", label: "सालों का अनुभव", icon: "experience" },
+      { value: 24, suffix: "/7", label: "24/7 सहायता", icon: "support" },
     ],
     collaboratorsEyebrow: "हमारे सहयोगी",
     collaboratorsTitle: "वे ब्रांड जिनके साथ हम काम करते हैं",
@@ -256,15 +256,15 @@ const homeCopyByLanguage = {
       },
     ],
     trustBadges: ["Multi-Brand Experts", "Transparent Pricing", "Emergency Support", "Verified Team"],
-    statsEyebrow: "Service Numbers",
-    statsTitle: "Maa Reliable Cooling Support ni chupinche numbers",
+    statsEyebrow: "",
+    statsTitle: "Trusted by Hundreds Across Hyderabad",
     statsDescription:
-      "Rating nundi support availability varaku, ee numbers Hyderabad lo customers nammina maa consistent AC service ni chupistayi.",
+      "A quick overview of our trusted services, satisfied customers, and commitment to delivering reliable AC solutions across Hyderabad.",
     stats: [
-      { value: 4.9, decimals: 1, label: "Google Rating" },
-      { value: 500, suffix: "+", label: "Happy Customers" },
-      { value: 10, suffix: "+", label: "Years Experience" },
-      { value: 24, suffix: "/7", label: "Direct Support" },
+      { value: 4.9, decimals: 1, label: "Google Rating", icon: "rating" },
+      { value: 500, suffix: "+", label: "Happy Customers", icon: "customers" },
+      { value: 10, suffix: "+", label: "Years Experience", icon: "experience" },
+      { value: 24, suffix: "/7", label: "24/7 Support", icon: "support" },
     ],
     collaboratorsEyebrow: "Mana Collaborators",
     collaboratorsTitle: "Memu Panichesey Brands",
@@ -466,15 +466,17 @@ function Home() {
 
       <HomeSection
         className="home-modern-section--collaborators"
-        eyebrow={copy.collaboratorsEyebrow}
-        title={copy.collaboratorsTitle}
-        description={copy.collaboratorsDescription}
         revealClass="home-reveal-delay-1"
       >
-      
+        <header className="home-collaborators__header">
+          <h2 className="home-collaborators__heading">{copy.collaboratorsEyebrow}</h2>
+          <p className="home-collaborators__subheading">{copy.collaboratorsTitle}</p>
+          <p className="home-collaborators__description">{copy.collaboratorsDescription}</p>
+        </header>
+
         <div className="home-trusted-by__layout">
           <div className="home-trusted-by__left">
-            <div className="home-trusted-by__logos home-modern-grid home-modern-grid--logos" aria-label={copy.collaboratorsTitle}>
+            <div className="home-trusted-by__logos" aria-label={copy.collaboratorsTitle}>
               {partnerBrands.map((brand, index) => (
                 <HomeCard
                   key={brand.name}
