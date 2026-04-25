@@ -669,9 +669,9 @@
 }
 
 .home-modern-grid--blog {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(1.2rem, 2vw, 1.8rem);
-  margin-top: clamp(2rem, 3.5vw, 3rem);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.9rem, 1.6vw, 1.2rem);
+  margin-top: clamp(1.15rem, 2vw, 1.65rem);
 }
 
 .home-modern-card {
@@ -1636,7 +1636,7 @@ body[data-theme="dark"] .home-footer-utility__socials a {
     gap: 0.55rem;
   }
 
- .home-trusted-by__logo-card {
+  .home-trusted-by__logo-card {
     min-height: 120px;
     padding: 0.72rem 0.82rem;
   }
@@ -1644,15 +1644,15 @@ body[data-theme="dark"] .home-footer-utility__socials a {
   .home-trusted-by__media img {
     aspect-ratio: 4 / 4.7;
   }
-  
-.home-trusted-by__logo-card {
-  min-height: 120px;
-  padding: 0.72rem 0.82rem;
-}
 
-.home-trusted-by__media img {
-  aspect-ratio: 4 / 4.7;
-}
+  .home-trusted-by__logo-card {
+    min-height: 120px;
+    padding: 0.72rem 0.82rem;
+  }
+
+  .home-trusted-by__media img {
+    aspect-ratio: 4 / 4.7;
+  }
 
 
   .home-modern-section--articles {
@@ -1666,6 +1666,7 @@ body[data-theme="dark"] .home-footer-utility__socials a {
 }
 
 @media (max-width: 520px) {
+
   .home-trusted-by__logos,
   .home-trusted-by__logos.home-modern-grid--logos,
   .home-modern-grid--logos {
