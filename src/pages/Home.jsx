@@ -137,16 +137,7 @@ const homeCopyByLanguage = {
         description: "24/7 availability for your critical cooling needs",
       },
     ],
-    trustBadges: ["Multi-Brand Specialists", "Transparent Pricing", "Emergency Support", "Verified Service Team"],
-    statsEyebrow: "",
-    statsTitle: "Trusted by Hundreds Across Hyderabad",
-    statsDescription:
-      "A quick overview of our trusted services, satisfied customers, and commitment to delivering reliable AC solutions across Hyderabad.",
-    stats: [
-      { value: 4.9, decimals: 1, label: "Google Rating", icon: "rating" },
-      { value: 500, suffix: "+", label: "Happy Customers", icon: "customers" },
-      { value: 10, suffix: "+", label: "Years Experience", icon: "experience" },
-      { value: 24, suffix: "/7", label: "24/7 Support", icon: "support" },
+
     trustBadges: ["Transparent Pricing", "Same-Day Service", "Verified Technicians"],
     statsEyebrow: "PROVEN TRACK RECORD",
     statsTitle: "By the Numbers",
@@ -557,47 +548,6 @@ function Home() {
                 <p>{item.description}</p>
               </article>
             ))}
-        <div className="home-trust-section__cta">
-          <Link className="home-trust-section__cta-button" to="/book-service">
-            Book AC Service
-          </Link>
-          <Link className="home-trust-section__cta-button home-trust-section__cta-button--secondary" to="/contact">
-            Get Free Quote
-          </Link>
-        </div>
-      </section>
-
-      <AnimatedStats
-        eyebrow={copy.statsEyebrow}
-        title={copy.statsTitle}
-        description={copy.statsDescription}
-        stats={copy.stats}
-        locale={statsLocaleByLanguage[language] ?? "en-IN"}
-      />
-
-      <HomeSection
-        className="home-modern-section--collaborators"
-        revealClass="home-reveal-delay-1"
-      >
-        <header className="home-collaborators__header">
-          <h2 className="home-collaborators__heading">{copy.collaboratorsEyebrow}</h2>
-          <p className="home-collaborators__subheading">{copy.collaboratorsTitle}</p>
-          <p className="home-collaborators__description">{copy.collaboratorsDescription}</p>
-        </header>
-
-        <div className="home-trusted-by__layout">
-          <div className="home-trusted-by__left">
-            <div className="home-trusted-by__logos" aria-label={copy.collaboratorsTitle}>
-              {partnerBrands.map((brand, index) => (
-                <HomeCard
-                  key={brand.name}
-                  className="home-modern-logo-card home-trusted-by__logo-card"
-                  revealClass={revealDelayClass(index + 1)}
-                >
-                  <img className="home-modern-logo-card__image" src={brand.logo} alt={`${brand.name} logo`} loading="lazy" />
-                </HomeCard>
-              ))}
-            </div>
           </div>
 
           <ul className="home-trust-badges" aria-label={copy.quickTrustLabel}>
