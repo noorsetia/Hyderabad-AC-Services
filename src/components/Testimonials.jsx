@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import "./Testimonials.css";
 
 const reviews = [
@@ -7,94 +7,145 @@ const reviews = [
     name: "Aijaz Khan",
     role: "Software Engineer",
     rating: 5,
-    text: "Always impressed with these guys...",
+    text: "Fast response and very professional service from booking to completion.",
   },
   {
     id: 2,
     name: "Raju",
     role: "Doctor",
     rating: 5,
-    text: "When I called they were out within two hours...",
+    text: "They reached in under two hours and fixed the issue on the first visit.",
   },
   {
     id: 3,
     name: "Sangeeta",
     role: "Chartered Accountant",
     rating: 4,
-    text: "Excellent customer service to start off!",
+    text: "Clean work, fair pricing, and clear communication throughout the process.",
   },
-];
-
-const stats = [
-  { label: "Average Rating", value: "4.5/5" },
-  { label: "Verified Reviews", value: "5000+" },
-  { label: "Repeat Customers", value: "86%" },
-  { label: "On-Time Service", value: "98%" },
+  {
+    id: 4,
+    name: "Naveen Reddy",
+    role: "Facility Manager",
+    rating: 5,
+    text: "Reliable team for AMC support, always punctual and prepared.",
+  },
+  {
+    id: 5,
+    name: "Farah Ali",
+    role: "Boutique Owner",
+    rating: 4,
+    text: "Professional technicians and smooth installation with zero downtime.",
+  },
+  {
+    id: 6,
+    name: "Pradeep Kumar",
+    role: "Operations Lead",
+    rating: 5,
+    text: "Great maintenance quality and quick follow-up whenever support is needed.",
+  },
 ];
 
 const starsFor = (rating) => `${"★".repeat(rating)}${"☆".repeat(5 - rating)}`;
 
-const getScrollStep = (container) => {
-  const firstCard = container?.querySelector(".trust-review-card");
-  if (!firstCard) return 0;
-
-  const style = window.getComputedStyle(container);
-  const gap = Number.parseFloat(style.columnGap || style.gap || "0") || 0;
-
-  return firstCard.getBoundingClientRect().width + gap;
-};
-
 function Testimonials() {
-  const sliderRef = useRef(null);
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [startIndex, setStartIndex] = useState(0);
+  const [cardsPerView, setCardsPerView] = useState(3);
+  const [isTransitionEnabled, setIsTransitionEnabled] = useState(true);
 
   useEffect(() => {
-    const slider = sliderRef.current;
-    if (!slider) return;
+    const getCardsPerView = () => {
+      if (window.innerWidth < 720) {
+        return 1;
+      }
 
-    const handleScroll = () => {
-      const step = getScrollStep(slider);
-      if (!step) return;
+      if (window.innerWidth < 1100) {
+        return 2;
+      }
 
-      const index = Math.round(slider.scrollLeft / step);
-      setActiveIndex(index);
+      return 3;
     };
 
-    slider.addEventListener("scroll", handleScroll);
-    return () => slider.removeEventListener("scroll", handleScroll);
+    const handleResize = () => {
+      const nextCardsPerView = getCardsPerView();
+      setCardsPerView(nextCardsPerView);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   useEffect(() => {
-    const slider = sliderRef.current;
-    if (!slider) return;
+    const maxStart = Math.max(0, reviews.length - cardsPerView);
+    setStartIndex((current) => Math.min(current, maxStart));
+  }, [cardsPerView]);
 
-    const interval = setInterval(() => {
-      const step = getScrollStep(slider);
-      if (!step) return;
+  const maxStartIndex = Math.max(0, reviews.length - cardsPerView);
 
-      const next = activeIndex >= reviews.length - 1 ? 0 : activeIndex + 1;
+  const clonedCardCount = Math.min(cardsPerView, reviews.length);
 
-      slider.scrollTo({
-        left: step * next,
-        behavior: "smooth",
-      });
+  const trackReviews = useMemo(
+    () => [...reviews, ...reviews.slice(0, clonedCardCount)],
+    [clonedCardCount]
+  );
 
-      setActiveIndex(next);
-    }, 5000);
+  const averageRating = useMemo(() => {
+    const total = reviews.reduce((sum, review) => sum + review.rating, 0);
+    return (total / reviews.length).toFixed(1);
+  }, []);
 
-    return () => clearInterval(interval);
-  }, [activeIndex]);
+  const totalReviewsLabel = "5000+";
 
-  const scroll = (dir) => {
-    const slider = sliderRef.current;
-    if (!slider) return;
+  const handlePrevious = () => {
+    if (maxStartIndex === 0) {
+      return;
+    }
 
-    const step = getScrollStep(slider);
-    const next = Math.max(0, Math.min(activeIndex + dir, reviews.length - 1));
-
-    slider.scrollTo({ left: step * next, behavior: "smooth" });
-    setActiveIndex(next);
+    setStartIndex((current) => (current === 0 ? maxStartIndex : current - 1));
   };
+
+  const handleNext = () => {
+    if (maxStartIndex === 0) {
+      return;
+    }
+
+    setStartIndex((current) => (current >= maxStartIndex ? 0 : current + 1));
+  };
+
+  useEffect(() => {
+    if (maxStartIndex === 0) {
+      return undefined;
+    }
+
+    const autoSlideInterval = window.setInterval(() => {
+      setStartIndex((current) => current + 1);
+    }, 2800);
+
+    return () => window.clearInterval(autoSlideInterval);
+  }, [maxStartIndex]);
+
+  const handleTrackTransitionEnd = () => {
+    if (startIndex <= maxStartIndex) {
+      return;
+    }
+
+    setIsTransitionEnabled(false);
+    setStartIndex(0);
+  };
+
+  useEffect(() => {
+    if (isTransitionEnabled) {
+      return;
+    }
+
+    const frameId = window.requestAnimationFrame(() => {
+      setIsTransitionEnabled(true);
+    });
+
+    return () => window.cancelAnimationFrame(frameId);
+  }, [isTransitionEnabled]);
 
   return (
     <section className="trust-reviews-section">
@@ -102,43 +153,54 @@ function Testimonials() {
         <h2>
           Read reviews, <strong>ride with confidence.</strong>
         </h2>
-        <p>⭐ 4.5/5 Trustpilot | Based on 5000+ reviews</p>
+        <p className="trust-reviews-subtext">
+          Trusted AC support for homes and businesses backed by consistently positive customer feedback.
+        </p>
+        <p className="trust-reviews-rating-line" aria-label="Average rating and total review count">
+          <span className="trust-reviews-stars" aria-hidden="true">★★★★★</span>
+          <span>{averageRating}/5</span>
+          <span className="trust-reviews-divider" aria-hidden="true">•</span>
+          <span>{totalReviewsLabel} reviews</span>
+        </p>
       </header>
 
       <div className="trust-reviews-layout">
-        <aside className="trust-reviews-side">
-          <span className="trust-quote-icon">“</span>
-          <p>What our customers are saying</p>
-
-          <div className="trust-reviews-nav">
-            <button onClick={() => scroll(-1)} disabled={activeIndex === 0}>←</button>
-            <button onClick={() => scroll(1)} disabled={activeIndex === reviews.length - 1}>→</button>
+        <div className="trust-reviews-cards-area">
+          <div
+            className="trust-reviews-slider"
+            style={{
+              "--cards-per-view": cardsPerView,
+              "--slider-index": startIndex,
+              "--slider-transition": isTransitionEnabled
+                ? "transform 560ms cubic-bezier(0.22, 1, 0.36, 1)"
+                : "none",
+            }}
+            aria-live="polite"
+          >
+            <div className="trust-reviews-track" onTransitionEnd={handleTrackTransitionEnd}>
+              {trackReviews.map((review, index) => (
+                <article className="trust-review-card" key={`${review.id}-${index}`}>
+                  <p className="trust-review-text">"{review.text}"</p>
+                  <p className="trust-review-stars" aria-label={`${review.rating} out of 5 stars`}>
+                    {starsFor(review.rating)}
+                  </p>
+                  <h3 className="trust-review-name">{review.name}</h3>
+                  <p className="trust-review-role">{review.role}</p>
+                </article>
+              ))}
+            </div>
           </div>
-        </aside>
 
-        <div className="trust-reviews-slider" ref={sliderRef}>
-          {reviews.map((r) => (
-            <article className="trust-review-card" key={r.id}>
-              <p>"{r.text}"</p>
-              <p>{starsFor(r.rating)}</p>
-              <h3>{r.name}</h3>
-              <p>{r.role}</p>
-            </article>
-          ))}
+          <div className="trust-reviews-nav" aria-label="Testimonial navigation">
+            <button type="button" onClick={handlePrevious} aria-label="Previous testimonials">
+              ←
+            </button>
+            <button type="button" onClick={handleNext} aria-label="Next testimonials">
+              →
+            </button>
+          </div>
         </div>
       </div>
-
-      {/* ✅ STATS (FROM FEATURE BRANCH) */}
-      <section className="trust-stats-section">
-        <div className="trust-stats-grid">
-          {stats.map((s) => (
-            <div key={s.label}>
-              <p>{s.value}</p>
-              <p>{s.label}</p>
-            </div>
-          ))}
-        </div>
-      </section>
     </section>
   );
 }

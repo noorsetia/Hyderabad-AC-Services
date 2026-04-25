@@ -67,12 +67,28 @@ const servicePointCheckIcon = (
   </svg>
 );
 
-const articleIcon = (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-    <path d="M6 4h12v16H6z" />
-    <path d="M9 9h6M9 13h6M9 17h4" strokeLinecap="round" />
-  </svg>
-);
+const resourceCardMedia = [
+  {
+    image: "/images/AC%20Installation.jpg",
+    imagePosition: "center 28%",
+    summary: "Installation planning, copper piping, and setup tips for long-term cooling performance.",
+  },
+  {
+    image: "/images/AC Service & Maintenance.jpg",
+    imagePosition: "center 42%",
+    summary: "Maintenance best practices to improve efficiency, air quality, and unit lifespan.",
+  },
+  {
+    image: "/images/AC%20repair.jpg",
+    imagePosition: "center center",
+    summary: "Quick guidance to detect early AC issues and reduce breakdown costs.",
+  },
+  {
+    image: "/images/Annual%20Maintenance%20Contracts.jpg",
+    imagePosition: "center 36%",
+    summary: "How AMC plans help businesses ensure uptime with preventive service support.",
+  },
+];
 
 const trustHighlightIcons = [
   (
@@ -94,23 +110,32 @@ const trustHighlightIcons = [
   ),
 ];
 
-const utilitySocialIcons = {
-  Facebook: (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M13.5 22v-8h2.7l.4-3.1h-3.1V8.9c0-.9.25-1.5 1.55-1.5H16.7V4.6c-.3-.04-1.33-.12-2.53-.12-2.5 0-4.22 1.53-4.22 4.35v2.01H7.1V14h2.84v8h3.56Z" fill="currentColor" />
+const customerStatIcons = [
+  (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+      <path d="M12 3.5 14.4 8l4.9.7-3.6 3.5.9 4.9-4.6-2.4-4.6 2.4.9-4.9L4.7 8.7 9.6 8 12 3.5Z" />
     </svg>
   ),
-  Instagram: (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm8.75 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z" fill="currentColor" />
+  (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+      <path d="M8 12a4 4 0 1 0 8 0 4 4 0 0 0-8 0Z" />
+      <path d="M4.5 20c1.7-3 4.3-4.5 7.5-4.5S17.8 17 19.5 20" strokeLinecap="round" />
     </svg>
   ),
-  WhatsApp: (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.9-1.4A10 10 0 1 0 12 2Zm5.8 14.2c-.24.68-1.2 1.25-1.98 1.41-.53.11-1.23.2-3.58-.77-3.01-1.25-4.95-4.32-5.1-4.52-.15-.2-1.22-1.62-1.22-3.09s.77-2.19 1.04-2.49c.27-.3.6-.38.8-.38h.58c.19 0 .45-.08.7.52.26.62.89 2.14.97 2.3.08.16.13.35.03.56-.1.2-.15.32-.29.5-.14.18-.3.39-.43.52-.14.14-.29.29-.12.59.17.3.74 1.22 1.6 1.98 1.11.99 2.04 1.29 2.34 1.44.3.15.48.13.66-.08.18-.21.77-.89.98-1.19.21-.3.41-.25.69-.15.28.1 1.77.84 2.08 1 .31.16.51.24.59.38.08.14.08.82-.16 1.5Z" fill="currentColor" />
+  (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+      <path d="M14.5 4.5 19 9l-8.5 8.5H6v-4.5L14.5 4.5Z" />
+      <path d="M13.2 5.8 18.2 10.8" strokeLinecap="round" />
     </svg>
   ),
-};
+  (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+      <circle cx="12" cy="12" r="8.2" />
+      <path d="M12 7.8v4.6l3 1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  ),
+];
+
 
 const homeCopyByLanguage = {
   en: {
@@ -123,7 +148,6 @@ const homeCopyByLanguage = {
     callNow: "Call Now",
     bookConsultation: "Book Service",
     callPrefix: "Call:",
-    trustEyebrow: "WHY CHOOSE US",
     trustTitle: "Why Businesses Choose Us",
     trustHighlights: [
       { title: "Experienced Technicians", description: "Skilled professionals for all AC services." },
@@ -269,7 +293,33 @@ const homeCopyByLanguage = {
     quickTrustLabel: "Quick trust badges",
     availableServicesAria: "Available service options",
     starAria: "Five star visual rating",
+    copyright: "Copyright Hyderabad Ac Services 2021",
+    sitemapLinks: [
+      { label: "Home", to: "/" },
+      { label: "Maa Gurinchi", to: "/about" },
+      { label: "Sevalu", to: "/services" },
+      { label: "Blog", to: "/blog" },
+      { label: "Sampradinchandi", to: "/contact" },
+    ],
   },
+};
+
+const utilitySocialIcons = {
+  Facebook: (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M13.5 22v-8h2.7l.4-3.1h-3.1V8.9c0-.9.25-1.5 1.55-1.5H16.7V4.6c-.3-.04-1.33-.12-2.53-.12-2.5 0-4.22 1.53-4.22 4.35v2.01H7.1V14h2.84v8h3.56Z" fill="currentColor" />
+    </svg>
+  ),
+  Instagram: (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm8.75 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z" fill="currentColor" />
+    </svg>
+  ),
+  WhatsApp: (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.9-1.4A10 10 0 1 0 12 2Zm5.8 14.2c-.24.68-1.2 1.25-1.98 1.41-.53.11-1.23.2-3.58-.77-3.01-1.25-4.95-4.32-5.1-4.52-.15-.2-1.22-1.62-1.22-3.09s.77-2.19 1.04-2.49c.27-.3.6-.38.8-.38h.58c.19 0 .45-.08.7.52.26.62.89 2.14.97 2.3.08.16.13.35.03.56-.1.2-.15.32-.29.5-.14.18-.3.39-.43.52-.14.14-.29.29-.12.59.17.3.74 1.22 1.6 1.98 1.11.99 2.04 1.29 2.34 1.44.3.15.48.13.66-.08.18-.21.77-.89.98-1.19.21-.3.41-.25.69-.15.28.1 1.77.84 2.08 1 .31.16.51.24.59.38.08.14.08.82-.16 1.5Z" fill="currentColor" />
+    </svg>
+  ),
 };
 
 function HomeWaveDivider({ flip = false }) {
@@ -279,70 +329,6 @@ function HomeWaveDivider({ flip = false }) {
         <path d="M0 64C178 16 356 16 534 64C712 112 890 112 1068 64C1246 16 1424 16 1600 64V120H0V64Z" />
       </svg>
     </div>
-  );
-}
-
-function ContactSectionPremium({ copy, siteContent, mapEmbedUrl }) {
-  return (
-    <HomeSection
-      className="home-modern-section--contact"
-      eyebrow={copy.serviceSupportEyebrow}
-      title={copy.serviceSupportTitle}
-      description={siteContent.contactPageDescription?.[0] ?? siteContent.companyDescription?.[0]}
-      revealClass="home-reveal-delay-1"
-    >
-      <div className="home-modern-grid home-modern-grid--blog">
-        <HomeCard className="home-modern-blog-card">
-          <div className="home-modern-blog-card__content">
-            <h3>{copy.phoneLabel}</h3>
-            <p>
-              <a className="home-modern-inline-link" href={siteContent.phoneLink}>
-                {siteContent.phoneDisplay}
-              </a>
-            </p>
-            <h3>{copy.emailLabel}</h3>
-            <p>
-              <a className="home-modern-inline-link" href={siteContent.emailLink}>
-                {siteContent.email}
-              </a>
-            </p>
-            <h3>{copy.locationLabel}</h3>
-            <p>{siteContent.location}</p>
-            <h3>{copy.workingHoursLabel}</h3>
-            <p>{siteContent.workingHours}</p>
-            <p>
-              <a className="home-modern-inline-link" href={siteContent.whatsappLink} target="_blank" rel="noreferrer">
-                {copy.whatsappUs}
-              </a>
-            </p>
-            <div className="footer-socials">
-              {siteContent.socialLinks.map((socialLink) => (
-                <a
-                  key={socialLink.label}
-                  href={socialLink.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={socialLink.label}
-                  className={`social-icon-${socialLink.label.toLowerCase()}`}
-                >
-                  {utilitySocialIcons[socialLink.label]}
-                </a>
-              ))}
-            </div>
-          </div>
-        </HomeCard>
-
-        <div className="home-trusted-by__media">
-          <iframe
-            title={`${siteContent.businessName} map`}
-            src={mapEmbedUrl}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            style={{ width: "100%", minHeight: "100%", border: 0, borderRadius: "24px" }}
-          />
-        </div>
-      </div>
-    </HomeSection>
   );
 }
 
@@ -360,32 +346,40 @@ function Home() {
   const serviceCards = [
     {
       title: "AC Repair",
+      description: "Rapid diagnostics and dependable fixes for residential and commercial cooling systems.",
       points: ["Quick diagnosis", "Leak repair", "Multi-brand support"],
       image: "/images/AC%20repair.jpg",
+      imagePosition: "center center",
       badge: "Repair",
       icon: servicesCardIcons[0],
       href: "/services/ac-repair",
     },
     {
       title: "AC Maintenance",
+      description: "Preventive servicing that improves performance, air quality, and long-term efficiency.",
       points: ["System check", "Output check", "Energy saving"],
       image: "/images/AC Service & Maintenance.jpg",
+      imagePosition: "center 42%",
       badge: "Maintenance",
       icon: servicesCardIcons[1],
       href: "/services/ac-service",
     },
     {
       title: "AC Installation",
+      description: "Precision setup for split, ducted, and commercial AC systems with expert planning.",
       points: ["Expert setup", "Piping setup", "On-time handover"],
       image: "/images/AC%20Installation.jpg",
+      imagePosition: "center 28%",
       badge: "Installation",
       icon: servicesCardIcons[2],
       href: "/services/ac-installation",
     },
     {
       title: "AMC Plans",
+      description: "Priority support and scheduled maintenance plans to reduce downtime and protect equipment.",
       points: ["Routine checks", "Preventive care", "Priority help"],
       image: "/images/Annual%20Maintenance%20Contracts.jpg",
+      imagePosition: "center 36%",
       badge: "AMC",
       icon: servicesCardIcons[3],
       href: "/services/ac-service",
@@ -397,7 +391,6 @@ function Home() {
     icon: trustHighlightIcons[index] ?? trustHighlightIcons[0],
   }));
 
-  const mapEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(siteContent.location)}&output=embed`;
   const blogPosts =
     Array.isArray(siteContent.blogPosts) && siteContent.blogPosts.length
       ? siteContent.blogPosts
@@ -412,6 +405,23 @@ function Home() {
     };
   });
 
+  const resourceCards = Array.from({ length: 4 }, (_, index) => {
+    const post = blogLinks[index] ?? blogs[index] ?? null;
+
+    if (!post) {
+      return null;
+    }
+
+    const media = resourceCardMedia[index % resourceCardMedia.length];
+
+    return {
+      ...post,
+      image: media.image,
+      imagePosition: media.imagePosition,
+      summary: media.summary,
+    };
+  }).filter(Boolean);
+
   return (
     <>
       <div className="home-page home-page--modern">
@@ -424,14 +434,18 @@ function Home() {
             backgroundRepeat: "no-repeat",
           }}
         >
-          <div className="home-modern-hero__left">
-            <div className="home-modern-hero__content">
-              <p className="home-modern-hero__badge">{copy.heroBadge}</p>
-              <h1 className="home-modern-hero__title">
-                <span>{copy.heroTitleStart}</span>
-                <span>{copy.heroTitleHighlight}</span>
-              </h1>
-              <p className="home-modern-hero__summary">{copy.heroSummary}</p>
+          <div className="home-modern-hero__content">
+            <p className="home-modern-hero__badge">B2B HVAC Solutions</p>
+            <h1 className="home-modern-hero__title">
+              <span>Smart AC Solutions for</span>
+              <span>Modern Commercial Spaces</span>
+            </h1>
+
+            <p className="home-modern-hero__summary">
+              We deliver energy-efficient HVAC solutions designed for performance, cost savings, and long-term reliability.
+            </p>
+          </div>
+
               <div className="home-modern-hero__actions">
                 <Link className="home-modern-button home-modern-button--primary" to="/contact">
                   {copy.bookConsultation}
@@ -440,7 +454,8 @@ function Home() {
                   {copy.callNow}
                 </a>
               </div>
-              <ul className="home-modern-hero__trust-pills" aria-label="Business trust indicators">
+
+              <ul className="home-modern-hero__trust-indicators" aria-label="Business trust indicators">
                 {enterpriseTrustIndicators.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
@@ -463,18 +478,12 @@ function Home() {
                   Name
                   <input type="text" name="name" placeholder="Your name" required />
                 </label>
-                <label>
-                  Company Name
-                  <input type="text" name="company" placeholder="Your company or site name" required />
-                </label>
+
                 <label>
                   Email
                   <input type="email" name="email" placeholder="Your email" required />
                 </label>
-                <label>
-                  Number of AC Units
-                  <input type="number" name="units" placeholder="e.g. 12" min="1" />
-                </label>
+
                 <label className="home-lead-card__full">
                   Service Type
                   <select name="serviceType" defaultValue="" required>
@@ -510,6 +519,11 @@ function Home() {
             <h2 className="home-modern-section__title">{copy.trustTitle}</h2>
           </header>
 
+      <section className="home-trust-section home-reveal home-reveal-delay-1" data-reveal>
+        <header className="home-trust-section__header">
+          <h2 className="home-modern-section__title">{copy.trustTitle}</h2>
+        </header>
+
           <div className="home-trust-grid">
             {trustHighlights.map((item, index) => (
               <article key={item.title} className="home-trust-card">
@@ -517,6 +531,7 @@ function Home() {
                   {item.icon}
                 </span>
                 <h3>{item.title}</h3>
+
                 {index === 2 ? (
                   <p className="home-trust-card__stars" aria-label={copy.starAria}>
                     <span>★</span>
@@ -526,9 +541,57 @@ function Home() {
                     <span>★</span>
                   </p>
                 ) : null}
+
                 <p>{item.description}</p>
               </article>
             ))}
+
+        <div className="home-trust-section__cta">
+          <Link className="home-trust-section__cta-button" to="/book-service">
+            Book AC Service
+          </Link>
+          <Link className="home-trust-section__cta-button home-trust-section__cta-button--secondary" to="/contact">
+            Get Free Quote
+          </Link>
+        </div>
+              <p>{item.description}</p>
+            </article>
+          ))}
+        </div>
+
+      </section>
+
+      <AnimatedStats
+        eyebrow={copy.statsEyebrow}
+        title={copy.statsTitle}
+        description={copy.statsDescription}
+        stats={copy.stats}
+        locale={statsLocaleByLanguage[language] ?? "en-IN"}
+      />
+
+      <HomeSection
+        className="home-modern-section--collaborators"
+        revealClass="home-reveal-delay-1"
+      >
+        <header className="home-collaborators__header">
+          <h2 className="home-collaborators__heading">{copy.collaboratorsEyebrow}</h2>
+          <p className="home-collaborators__subheading">{copy.collaboratorsTitle}</p>
+          <p className="home-collaborators__description">{copy.collaboratorsDescription}</p>
+        </header>
+
+        <div className="home-trusted-by__layout">
+          <div className="home-trusted-by__left">
+            <div className="home-trusted-by__logos" aria-label={copy.collaboratorsTitle}>
+              {partnerBrands.map((brand, index) => (
+                <HomeCard
+                  key={brand.name}
+                  className="home-modern-logo-card home-trusted-by__logo-card"
+                  revealClass={revealDelayClass(index + 1)}
+                >
+                  <img className="home-modern-logo-card__image" src={brand.logo} alt={`${brand.name} logo`} loading="lazy" />
+                </HomeCard>
+              ))}
+            </div>
           </div>
 
           <ul className="home-trust-badges" aria-label={copy.quickTrustLabel}>
@@ -547,13 +610,14 @@ function Home() {
           </div>
         </section>
 
-        <AnimatedStats
-          eyebrow={copy.statsEyebrow}
-          title={copy.statsTitle}
-          description={copy.statsDescription}
-          stats={copy.stats}
-          locale={statsLocaleByLanguage[language] ?? "en-IN"}
-        />
+          <AnimatedStats
+            className="home-connected-flow-section home-connected-flow-section--stats"
+            eyebrow={copy.statsEyebrow}
+            title={copy.statsTitle}
+            description={copy.statsDescription}
+            stats={copy.stats}
+            locale={statsLocaleByLanguage[language] ?? "en-IN"}
+          />
 
         <HomeSection
           className="home-modern-section--collaborators"
@@ -562,6 +626,7 @@ function Home() {
           description={copy.collaboratorsDescription}
           revealClass="home-reveal-delay-1"
         >
+
           <div className="home-trusted-by__layout">
             <div className="home-trusted-by__left">
               <div className="home-trusted-by__logos home-modern-grid home-modern-grid--logos" aria-label={copy.collaboratorsTitle}>
@@ -574,6 +639,82 @@ function Home() {
                     <img className="home-modern-logo-card__image" src={brand.logo} alt={`${brand.name} logo`} loading="lazy" />
                   </HomeCard>
                 ))}
+
+      <HomeSection
+        id="services"
+        className="home-modern-section--services"
+        eyebrow="OUR SERVICES"
+        title="Book Your HVAC Expert Today!"
+        description="Count on our certified professionals for reliable AC services, repairs, and maintenance. We ensure comfort, efficiency, and peace of mind - all year round."
+        revealClass="home-reveal-delay-1"
+      >
+        <div className="home-services-grid">
+          {serviceCards.map((serviceCard, index) => (
+            <article key={serviceCard.title} className={`home-services-card home-reveal ${revealDelayClass(index + 1)}`} data-reveal>
+              <div className="home-services-card__media">
+                <img src={serviceCard.image} alt={serviceCard.title} loading="lazy" />
+              </div>
+
+              <div className="home-services-card__content">
+                <span className="home-services-card__icon" aria-hidden="true">
+                  {serviceCard.icon}
+                </span>
+                <span className="home-services-card__badge">{serviceCard.badge}</span>
+                <h3>{serviceCard.title}</h3>
+
+                <ul className="home-services-card__list">
+                  {serviceCard.points.map((point) => (
+                    <li key={point}>
+                      <span className="home-services-card__check" aria-hidden="true">
+                        {servicePointCheckIcon}
+                      </span>
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <Link className="home-services-card__button" to={serviceCard.href}>
+                  Learn More →
+                </Link>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div className="home-services-actions">
+          <Link className="home-services-view-all" to="/services">
+            View All Services →
+          </Link>
+        </div>
+
+      </HomeSection>
+
+      <HomeWaveDivider flip />
+
+      <div className="home-modern-block home-reveal home-reveal-delay-1" data-reveal>
+        <Testimonials />
+      </div>
+
+      <HomeSection
+        className="home-modern-section--articles"
+        eyebrow={copy.latestArticlesEyebrow}
+        title={copy.latestArticlesTitle}
+        description={copy.latestArticlesDescription}
+        revealClass="home-reveal-delay-1"
+      >
+        <div className="home-modern-grid home-modern-grid--blog">
+          {blogLinks.map((post, index) => (
+            <HomeCard key={post.title} className="home-modern-blog-card" revealClass={revealDelayClass(index + 1)}>
+              <span className="home-modern-blog-icon" aria-hidden="true">
+                {articleIcon}
+              </span>
+
+              <div className="home-modern-blog-card__content">
+                <h3>{post.title}</h3>
+
+                <Link className="home-modern-blog-link" to={post.slug ? `/blog/${post.slug}` : "/blog"}>
+                  {copy.readArticle}
+                </Link>
               </div>
             </div>
 
@@ -585,42 +726,26 @@ function Home() {
 
         <HomeSection
           id="services"
-          className="home-modern-section--services"
           eyebrow={copy.serviceFocusEyebrow}
           title={copy.serviceFocusTitle}
-          description={siteContent.companyDescription?.[0]}
+          description={siteContent.companyDescription[0]}
           revealClass="home-reveal-delay-1"
         >
-          <div className="home-services-grid">
+          <div className="home-modern-grid home-modern-grid--services">
             {serviceCards.map((serviceCard, index) => (
-              <article key={serviceCard.title} className={`home-services-card home-reveal ${revealDelayClass(index + 1)}`} data-reveal>
-                <div className="home-services-card__media">
-                  <img src={serviceCard.image} alt={serviceCard.title} loading="lazy" />
-                </div>
-
-                <div className="home-services-card__content">
-                  <span className="home-services-card__icon" aria-hidden="true">
-                    {serviceCard.icon}
-                  </span>
-                  <span className="home-services-card__badge">{serviceCard.badge}</span>
-                  <h3>{serviceCard.title}</h3>
-
-                  <ul className="home-services-card__list">
-                    {serviceCard.points.map((point) => (
-                      <li key={point}>
-                        <span className="home-services-card__check" aria-hidden="true">
-                          {servicePointCheckIcon}
-                        </span>
-                        <span>{point}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <Link className="home-services-card__button" to={serviceCard.href}>
-                    Learn More
-                  </Link>
-                </div>
-              </article>
+              <HomeCard
+                key={serviceCard.title}
+                className="home-modern-service-card"
+                icon={serviceCard.icon}
+                title={serviceCard.title}
+                revealClass={revealDelayClass(index + 1)}
+              >
+                <ul className="home-modern-list">
+                  {serviceCard.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+              </HomeCard>
             ))}
           </div>
 
@@ -632,8 +757,6 @@ function Home() {
             ))}
           </div>
         </HomeSection>
-
-        <HomeWaveDivider flip />
 
         <div className="home-modern-block home-reveal home-reveal-delay-1" data-reveal>
           <Testimonials />
@@ -648,19 +771,17 @@ function Home() {
         >
           <div className="home-modern-grid home-modern-grid--blog">
             {blogLinks.map((post, index) => (
-              <HomeCard
-                key={post.title}
-                className="home-modern-blog-card"
-                revealClass={revealDelayClass(index + 1)}
-              >
+              <HomeCard key={post.title} className="home-modern-blog-card" revealClass={revealDelayClass(index + 1)}>
                 <span className="home-modern-blog-icon" aria-hidden="true">
                   {articleIcon}
                 </span>
 
                 <div className="home-modern-blog-card__content">
                   <h3>{post.title}</h3>
+
                   <Link className="home-modern-blog-link" to={post.slug ? `/blog/${post.slug}` : "/blog"}>
                     {copy.readArticle}
+                    <span aria-hidden="true">→</span>
                   </Link>
                 </div>
               </HomeCard>
@@ -679,7 +800,8 @@ function Home() {
           subtitle={copy.faqSubtitle}
         />
 
-        <ContactSectionPremium copy={copy} siteContent={siteContent} mapEmbedUrl={mapEmbedUrl} />
+        <ContactSectionPremium />
+
       </div>
 
       <Footer />
@@ -688,3 +810,4 @@ function Home() {
 }
 
 export default Home;
+  

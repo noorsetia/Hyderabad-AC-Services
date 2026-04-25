@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { FaBriefcase, FaHeadset, FaStar, FaUsers } from "react-icons/fa";
+import { FiBriefcase, FiHeadphones, FiStar, FiUsers } from "react-icons/fi";
 import "./AnimatedStats.css";
 
 const DEFAULT_STATS = [
@@ -10,10 +10,10 @@ const DEFAULT_STATS = [
 ];
 
 const STAT_ICONS = {
-  rating: FaStar,
-  customers: FaUsers,
-  experience: FaBriefcase,
-  support: FaHeadset,
+  rating: FiStar,
+  customers: FiUsers,
+  experience: FiBriefcase,
+  support: FiHeadphones,
 };
 
 const easeOutQuint = (progress) => 1 - (1 - progress) ** 5;
@@ -144,17 +144,11 @@ function AnimatedCounterCard({ stat, index, isActive, stagger = 140, locale }) {
       className={`animated-stat-card ${isActive ? "is-visible" : ""}`}
       style={{ "--stat-delay": `${index * 90}ms` }}
     >
-      <div className="animated-stat-card__inner">
-        {StatIcon ? (
-          <span className="animated-stat-card__icon-wrap" aria-hidden="true">
-            <StatIcon className="animated-stat-card__icon" />
-          </span>
-        ) : null}
-        <p className="animated-stat-card__value">{formattedValue}</p>
-        <p className="animated-stat-card__label">{stat.label}</p>
-        {stat.caption ? <p className="animated-stat-card__caption">{stat.caption}</p> : null}
-      </div>
-      {stat.icon ? <span className="animated-stat-card__icon" aria-hidden="true">{stat.icon}</span> : null}
+      {StatIcon ? (
+        <span className="animated-stat-card__icon-wrap" aria-hidden="true">
+          <StatIcon className="animated-stat-card__icon" />
+        </span>
+      ) : null}
       <p className="animated-stat-card__value">{formattedValue}</p>
       <p className="animated-stat-card__label">{stat.label}</p>
       {stat.caption ? <p className="animated-stat-card__caption">{stat.caption}</p> : null}
