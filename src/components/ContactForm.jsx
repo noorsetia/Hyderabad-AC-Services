@@ -20,7 +20,7 @@ const contactFormCopy = {
     phonePlaceholder: "10-digit phone number",
     emailPlaceholder: "Your business email",
     messagePlaceholder: "Briefly describe your AC requirement",
-    submit: "Request a Call Back",
+    submit: "Send Message",
     success: "Thanks for reaching out. Our team will contact you shortly.",
     serviceOptions: ["AC Repair", "AC Installation", "Maintenance"],
     errors: {
@@ -43,8 +43,8 @@ const contactFormCopy = {
     phonePlaceholder: "10 अंकों का फ़ोन नंबर",
     emailPlaceholder: "अपना व्यावसायिक ईमेल",
     messagePlaceholder: "अपनी एसी आवश्यकता संक्षेप में बताएं",
-    submit: "कॉल बैक अनुरोध करें",
-    success: "धन्यवाद! हमारी टीम जल्द आपसे संपर्क करेगी।",
+    submit: "संदेश भेजें",
+    success: "धन्यवाद! हमारी टीम जल्द आपसे संपर्क करेगी.",
     serviceOptions: ["AC Repair", "AC Installation", "Maintenance"],
     errors: {
       nameRequired: "नाम आवश्यक है।",
@@ -66,7 +66,7 @@ const contactFormCopy = {
     phonePlaceholder: "10-digit phone number",
     emailPlaceholder: "Mee business email",
     messagePlaceholder: "Mee AC requirement gurinchi short ga rayandi",
-    submit: "Request a Call Back",
+    submit: "Sande\u0936 Bhejind",
     success: "Dhanyavadalu! Maa team tondaralo mimmalni contact chestundi.",
     serviceOptions: ["AC Repair", "AC Installation", "Maintenance"],
     errors: {
@@ -220,6 +220,7 @@ function ContactForm() {
           placeholder={copy.messagePlaceholder}
           rows="5"
           aria-invalid={Boolean(errors.message)}
+          style={{ resize: "none" }}
         />
         {errors.message && <small className="field-error">{errors.message}</small>}
       </label>

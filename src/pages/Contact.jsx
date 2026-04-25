@@ -64,13 +64,15 @@ function ContactPage() {
   const siteContent = getLocalizedSiteContent(language);
   const copy = contactPageCopy[language] ?? contactPageCopy.en;
   const businessDescription = siteContent.companyDescription?.[0] ?? copy.businessDescription;
+  const locationMapLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent("Hyderabad, TS, India, Hyderabad, India, Telangana")}`;
+  const phoneWhatsappLink = `${siteContent.whatsappLink}?text=${encodeURIComponent("Hello Hyderabad AC Services")}`;
 
   return (
-    <div className="contact-page contact-page--clean">
-      <section className="contact-hero contact-hero--clean">
+    <>
+      <div className="contact-page contact-page--clean">
+        <section className="contact-hero contact-hero--clean">
         <span className="contact-hero__eyebrow">{copy.eyebrow}</span>
         <h1 className="contact-hero__title">{copy.title}</h1>
-        <p className="contact-hero__description">{copy.description}</p>
       </section>
 
       <section className="contact-section contact-section--page contact-section--clean">
@@ -89,7 +91,7 @@ function ContactPage() {
             <div className="contact-card-header">
               <div className="contact-badge contact-badge--alt">{copy.businessBadge}</div>
               <h3>{copy.businessTitle}</h3>
-              <p>{businessDescription}</p>
+              <p>Trusted AC installation, maintenance, and repair services in Hyderabad.</p>
             </div>
 
             <div className="contact-info-list contact-info-list--clean">
@@ -97,7 +99,11 @@ function ContactPage() {
                 <span className="contact-info-icon" aria-hidden="true"><FiPhoneCall /></span>
                 <div>
                   <span>PHONE</span>
-                  <strong><a href={siteContent.phoneLink}>{siteContent.phoneDisplay}</a></strong>
+                  <strong>
+                    <a href={phoneWhatsappLink} target="_blank" rel="noreferrer">
+                      {siteContent.phoneDisplay}
+                    </a>
+                  </strong>
                 </div>
               </div>
 
@@ -105,7 +111,11 @@ function ContactPage() {
                 <span className="contact-info-icon" aria-hidden="true"><FiMapPin /></span>
                 <div>
                   <span>LOCATION</span>
-                  <strong>{siteContent.location}</strong>
+                  <strong>
+                    <a href={locationMapLink} target="_blank" rel="noreferrer">
+                      {siteContent.location}
+                    </a>
+                  </strong>
                 </div>
               </div>
 
@@ -113,7 +123,7 @@ function ContactPage() {
                 <span className="contact-info-icon" aria-hidden="true"><FiClock /></span>
                 <div>
                   <span>WORKING HOURS</span>
-                  <strong>{siteContent.workingHours}</strong>
+                  <strong>9 AM – 9 PM</strong>
                 </div>
               </div>
             </div>
@@ -129,9 +139,9 @@ function ContactPage() {
           </aside>
         </div>
       </section>
-
+      </div>
       <Footer />
-    </div>
+    </>
   );
 }
 
