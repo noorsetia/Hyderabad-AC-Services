@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import Testimonials from "../components/Testimonials";
 import AnimatedStats from "../components/AnimatedStats";
+import ContactSectionPremium from "../components/ContactSectionPremium";
 import HomeCard from "../components/home/HomeCard";
 import HomeFaqAccordion from "../components/home/HomeFaqAccordion";
 import HomeSection from "../components/home/HomeSection";
@@ -568,6 +569,8 @@ function Home() {
         title={copy.faqTitle}
         subtitle={copy.faqSubtitle}
       />
+
+      <ContactSectionPremium />
 
             </div>
       <Footer />

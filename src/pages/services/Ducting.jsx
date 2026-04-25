@@ -7,7 +7,11 @@ function Ducting() {
     <>
       <main className="service-page-container">
         <div className="service-page-header">
+<<<<<<< HEAD
           <p className="service-page-quote" style={{ fontSize: "1.2rem", fontStyle: "italic", fontWeight: "bold", marginBottom: "15px" }}>"Smart Ducting. Seamless Airflow. Precision Cooling Starts Here."</p>
+=======
+          <p className="service-page-quote">"Smart Ducting. Seamless Airflow. Precision Cooling Starts Here."</p>
+>>>>>>> ad2340f (save local changes before sync)
           <h1>DUCTING CONTRACTORS IN HYDERABAD</h1>
         </div>
         
