@@ -74,15 +74,14 @@ function Testimonials() {
           className="trust-reviews-swiper"
           modules={[Autoplay, Navigation, A11y]}
           loop
-          centeredSlides
-          speed={240}
+          speed={400}
           grabCursor
           navigation={{
             prevEl: ".trust-reviews-nav--prev",
             nextEl: ".trust-reviews-nav--next",
           }}
           autoplay={{
-            delay: 1200,
+            delay: 4000,
             disableOnInteraction: false,
             pauseOnMouseEnter: true,
           }}
