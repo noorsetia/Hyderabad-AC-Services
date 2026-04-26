@@ -7,6 +7,8 @@ import BookServicePage from "./pages/BookService";
 import ServicesPage from "./pages/Services";
 import BlogsPage from "./pages/Blog";
 import BlogPostPage from "./pages/BlogPostDetail";
+import TermsAndConditions from "./pages/TermsAndConditions";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 // Service Pages (merged cleanly)
 import AcService from "./pages/services/AcService";
@@ -31,6 +33,8 @@ function App() {
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/blog" element={<BlogsPage />} />
         <Route path="/blog/:slug" element={<BlogPostPage />} />
+        <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/book-service" element={<BookServicePage />} />
         <Route path="/contact" element={<ContactPage />} />
 

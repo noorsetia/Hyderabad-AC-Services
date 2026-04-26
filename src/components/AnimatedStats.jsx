@@ -154,10 +154,6 @@ function AnimatedCounterCard({ stat, index, isActive, stagger = 140, locale }) {
         <p className="animated-stat-card__label">{stat.label}</p>
         {stat.caption ? <p className="animated-stat-card__caption">{stat.caption}</p> : null}
       </div>
-      {stat.icon ? <span className="animated-stat-card__icon" aria-hidden="true">{stat.icon}</span> : null}
-      <p className="animated-stat-card__value">{formattedValue}</p>
-      <p className="animated-stat-card__label">{stat.label}</p>
-      {stat.caption ? <p className="animated-stat-card__caption">{stat.caption}</p> : null}
     </article>
   );
 }

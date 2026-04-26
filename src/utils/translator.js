@@ -22,8 +22,7 @@ export async function translateText(text, targetLang, sourceLang = 'en') {
       return translation;
     }
     return text; // Fallback to original text if API fails
-  } catch (error) {
-    console.error("Translation error:", error);
+  } catch {
     return text;
   }
 }

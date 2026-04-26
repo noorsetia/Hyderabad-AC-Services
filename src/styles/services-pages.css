@@ -57,7 +57,7 @@
 .service-page-list li {
   position: relative;
   font-size: 1.05rem;
-  line-height: 1.5;
+  line-height: 1.6;
   margin-bottom: 10px;
   color: #333;
 }
@@ -72,7 +72,7 @@
 }
 
 .service-page-list--dots li::before {
-  content: "•";
+  content: "\2022";
   position: absolute;
   left: 0;
   top: 0;
@@ -90,7 +90,7 @@
 }
 
 .service-page-list--check li::before {
-  content: "✓";
+  content: "\2713";
   position: absolute;
   left: 0;
   top: 0;
@@ -100,11 +100,10 @@
 
 .service-page-list--arrow li {
   padding-left: 20px;
-  position: relative;
 }
 
 .service-page-list--arrow li::before {
-  content: "➤";
+  content: "\27A4";
   position: absolute;
   left: 0;
   top: 0;
@@ -168,16 +167,16 @@
   max-width: 500px;
 }
 
-.service-page-brands {
-  margin-top: 20px;
-  font-weight: bold;
-}
-
 .service-page-image img {
   width: 100%;
   height: auto;
   border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.service-page-brands {
+  margin-top: 20px;
+  font-weight: bold;
 }
 
 @media (min-width: 768px) {

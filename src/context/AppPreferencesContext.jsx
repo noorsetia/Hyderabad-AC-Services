@@ -33,34 +33,6 @@ function AppPreferencesProvider({ children }) {
   useEffect(() => {
     document.documentElement.lang = language;
     window.localStorage.setItem("siteLanguage", language);
-
-    // Dynamic Google Translate Trigger for the entire website
-    const switchGoogleTranslate = () => {
-      const googleTranslateCombo = document.querySelector(".goog-te-combo");
-      
-      // Ensure proper reset for English
-      if (language === "en") {
-          // Clear cookies used by Google Translate to prevent persistent translation
-          document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-          document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; domain=${window.location.hostname}; path=/;`;
-          document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; domain=.hyderabad-ac-services.com; path=/;"; // fallback
-          
-          // To perfectly restore original English React components, it requires a quick programmatic refresh
-          // only if the page has already been modified by Google Translate.
-          const htmlEl = document.querySelector('html');
-          if (htmlEl && (htmlEl.classList.contains('translated-ltr') || htmlEl.classList.contains('translated-rtl'))) {
-            window.location.reload();
-          }
-      } else if (googleTranslateCombo) {
-        googleTranslateCombo.value = language;
-        googleTranslateCombo.dispatchEvent(new Event("change"));
-      }
-    };
-
-    // Run this immediately and retry briefly if the script is still loading
-    switchGoogleTranslate();
-    setTimeout(switchGoogleTranslate, 1500);
-
   }, [language]);
 
   useEffect(() => {
