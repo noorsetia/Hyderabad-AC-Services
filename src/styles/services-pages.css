@@ -19,16 +19,6 @@
   margin-bottom: 10px;
 }
 
-
-
-.service-page-subtitle {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: #222;
-  margin: 30px 0 15px;
-}
-
-
 .service-page-quote {
   font-size: 1.4rem;
   font-weight: 600;
@@ -56,25 +46,10 @@
   line-height: 1.6;
   margin-bottom: 15px;
   color: #444;
-
-
-
 }
-
-.service-page-content p,
-.service-page-text p {
-  font-size: 1.05rem;
-  line-height: 1.6;
-  margin-bottom: 15px;
-  color: #444;
-
 
 .service-page-list {
   list-style: none;
-
-  padding-left: 0;
-  margin-bottom: 25px;
-
   padding: 0;
   margin: 0 0 25px;
 }
@@ -82,7 +57,7 @@
 .service-page-list li {
   position: relative;
   font-size: 1.05rem;
-  line-height: 1.5;
+  line-height: 1.6;
   margin-bottom: 10px;
   color: #333;
 }
@@ -93,25 +68,11 @@
 }
 
 .service-page-list--dots li {
-
-
-  list-style-type: disc;
-  margin-left: 20px;
-  display: list-item;
-  color: #0c84cc;
-}
-
-.service-page-list--dots li span.text,
-.service-page-list--dots li .text {
-
   padding-left: 18px;
 }
 
 .service-page-list--dots li::before {
-
-  content: "•";
   content: "\2022";
-
   position: absolute;
   left: 0;
   top: 0;
@@ -125,24 +86,10 @@
 }
 
 .service-page-list--check li {
-
-  display: flex;
-  align-items: flex-start;
-}
-
-.service-page-list--check li::before {
-  content: "✓";
-  color: #0c84cc;
-  font-weight: bold;
-  margin-right: 10px;
-
   padding-left: 22px;
 }
 
 .service-page-list--check li::before {
-
-  content: "✓";
-
   content: "\2713";
   position: absolute;
   left: 0;
@@ -153,13 +100,9 @@
 
 .service-page-list--arrow li {
   padding-left: 20px;
-  position: relative;
 }
 
 .service-page-list--arrow li::before {
-
-  content: "➤";
-
   content: "\27A4";
   position: absolute;
   left: 0;
@@ -197,21 +140,11 @@
   background-color: #2b2b2b;
   color: #fff;
   padding: 12px 30px;
-
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-  text-transform: uppercase;
-
-
   text-transform: uppercase;
   font-weight: bold;
   text-decoration: none;
   border-radius: 4px;
   transition: background-color 0.2s;
-
-
 }
 
 .service-page-button:hover {
@@ -234,19 +167,16 @@
   max-width: 500px;
 }
 
-
-
-.service-page-brands {
-  margin-top: 20px;
-  font-weight: bold;
-}
-
-
 .service-page-image img {
   width: 100%;
   height: auto;
   border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.service-page-brands {
+  margin-top: 20px;
+  font-weight: bold;
 }
 
 @media (min-width: 768px) {

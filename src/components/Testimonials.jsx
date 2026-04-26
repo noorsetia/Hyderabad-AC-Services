@@ -1,4 +1,8 @@
-import { useEffect, useMemo, useState } from "react";
+import { FaQuoteRight } from "react-icons/fa";
+import { Autoplay, A11y, Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
 import "./Testimonials.css";
 
 const reviews = [
@@ -6,201 +10,136 @@ const reviews = [
     id: 1,
     name: "Aijaz Khan",
     role: "Software Engineer",
-    rating: 5,
-    text: "Fast response and very professional service from booking to completion.",
+    avatar: "https://i.pravatar.cc/160?img=12",
+    text: "Always impressed with these guys. The technician arrived on time, explained the issue clearly, and had the cooling restored the same day.",
   },
   {
     id: 2,
-    name: "Raju",
-    role: "Doctor",
-    rating: 5,
-    text: "They reached in under two hours and fixed the issue on the first visit.",
+    name: "Dr. Raju",
+    role: "Clinic Owner",
+    avatar: "https://i.pravatar.cc/160?img=68",
+    text: "When I called, they were at our clinic within two hours. Fast diagnosis, professional behavior, and no unnecessary upselling.",
   },
   {
     id: 3,
-    name: "Sangeeta",
+    name: "Sangeeta Rao",
     role: "Chartered Accountant",
-    rating: 4,
-    text: "Clean work, fair pricing, and clear communication throughout the process.",
+    avatar: "https://i.pravatar.cc/160?img=32",
+    text: "Excellent customer service from the first call. The team was polite, tidy, and the AMC guidance was genuinely helpful for our office.",
   },
   {
     id: 4,
-    name: "Naveen Reddy",
+    name: "Farhan Ali",
     role: "Facility Manager",
-    rating: 5,
-    text: "Reliable team for AMC support, always punctual and prepared.",
+    avatar: "https://i.pravatar.cc/160?img=51",
+    text: "Reliable support for our commercial space. They handled multiple units efficiently and the after-service follow-up was a big plus.",
   },
   {
     id: 5,
-    name: "Farah Ali",
-    role: "Boutique Owner",
-    rating: 4,
-    text: "Professional technicians and smooth installation with zero downtime.",
-  },
-  {
-    id: 6,
-    name: "Pradeep Kumar",
+    name: "Meghana Patel",
     role: "Operations Lead",
-    rating: 5,
-    text: "Great maintenance quality and quick follow-up whenever support is needed.",
+    avatar: "https://i.pravatar.cc/160?img=47",
+    text: "Professional team, clear communication, and solid turnaround time. We now rely on them for ongoing AC maintenance support.",
   },
 ];
 
-const starsFor = (rating) => `${"★".repeat(rating)}${"☆".repeat(5 - rating)}`;
+const stats = [
+  { label: "Average Rating", value: "4.9/5" },
+  { label: "Verified Reviews", value: "500+" },
+  { label: "Repeat Customers", value: "86%" },
+  { label: "On-Time Service", value: "98%" },
+];
 
 function Testimonials() {
-  const [startIndex, setStartIndex] = useState(0);
-  const [cardsPerView, setCardsPerView] = useState(3);
-  const [isTransitionEnabled, setIsTransitionEnabled] = useState(true);
-
-  useEffect(() => {
-    const getCardsPerView = () => {
-      if (window.innerWidth < 720) {
-        return 1;
-      }
-
-      if (window.innerWidth < 1100) {
-        return 2;
-      }
-
-      return 3;
-    };
-
-    const handleResize = () => {
-      const nextCardsPerView = getCardsPerView();
-      setCardsPerView(nextCardsPerView);
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  useEffect(() => {
-    const maxStart = Math.max(0, reviews.length - cardsPerView);
-    setStartIndex((current) => Math.min(current, maxStart));
-  }, [cardsPerView]);
-
-  const maxStartIndex = Math.max(0, reviews.length - cardsPerView);
-
-  const clonedCardCount = Math.min(cardsPerView, reviews.length);
-
-  const trackReviews = useMemo(
-    () => [...reviews, ...reviews.slice(0, clonedCardCount)],
-    [clonedCardCount]
-  );
-
-  const averageRating = useMemo(() => {
-    const total = reviews.reduce((sum, review) => sum + review.rating, 0);
-    return (total / reviews.length).toFixed(1);
-  }, []);
-
-  const totalReviewsLabel = "5000+";
-
-  const handlePrevious = () => {
-    if (maxStartIndex === 0) {
-      return;
-    }
-
-    setStartIndex((current) => (current === 0 ? maxStartIndex : current - 1));
-  };
-
-  const handleNext = () => {
-    if (maxStartIndex === 0) {
-      return;
-    }
-
-    setStartIndex((current) => (current >= maxStartIndex ? 0 : current + 1));
-  };
-
-  useEffect(() => {
-    if (maxStartIndex === 0) {
-      return undefined;
-    }
-
-    const autoSlideInterval = window.setInterval(() => {
-      setStartIndex((current) => current + 1);
-    }, 2800);
-
-    return () => window.clearInterval(autoSlideInterval);
-  }, [maxStartIndex]);
-
-  const handleTrackTransitionEnd = () => {
-    if (startIndex <= maxStartIndex) {
-      return;
-    }
-
-    setIsTransitionEnabled(false);
-    setStartIndex(0);
-  };
-
-  useEffect(() => {
-    if (isTransitionEnabled) {
-      return;
-    }
-
-    const frameId = window.requestAnimationFrame(() => {
-      setIsTransitionEnabled(true);
-    });
-
-    return () => window.cancelAnimationFrame(frameId);
-  }, [isTransitionEnabled]);
-
   return (
     <section className="trust-reviews-section">
+      <div className="trust-reviews-section__quote" aria-hidden="true">
+        <FaQuoteRight />
+      </div>
+
       <header className="trust-reviews-top">
-        <h2>
-          Read reviews, <strong>ride with confidence.</strong>
-        </h2>
-        <p className="trust-reviews-subtext">
-          Trusted AC support for homes and businesses backed by consistently positive customer feedback.
-        </p>
-        <p className="trust-reviews-rating-line" aria-label="Average rating and total review count">
-          <span className="trust-reviews-stars" aria-hidden="true">★★★★★</span>
-          <span>{averageRating}/5</span>
-          <span className="trust-reviews-divider" aria-hidden="true">•</span>
-          <span>{totalReviewsLabel} reviews</span>
+        <h2>What our Clients say!</h2>
+        <p>
+          Honest customer feedback from residential and commercial clients who trust our team for responsive,
+          reliable AC service across Hyderabad.
         </p>
       </header>
 
-      <div className="trust-reviews-layout">
-        <div className="trust-reviews-cards-area">
-          <div
-            className="trust-reviews-slider"
-            style={{
-              "--cards-per-view": cardsPerView,
-              "--slider-index": startIndex,
-              "--slider-transition": isTransitionEnabled
-                ? "transform 560ms cubic-bezier(0.22, 1, 0.36, 1)"
-                : "none",
-            }}
-            aria-live="polite"
-          >
-            <div className="trust-reviews-track" onTransitionEnd={handleTrackTransitionEnd}>
-              {trackReviews.map((review, index) => (
-                <article className="trust-review-card" key={`${review.id}-${index}`}>
-                  <p className="trust-review-text">"{review.text}"</p>
-                  <p className="trust-review-stars" aria-label={`${review.rating} out of 5 stars`}>
-                    {starsFor(review.rating)}
-                  </p>
-                  <h3 className="trust-review-name">{review.name}</h3>
-                  <p className="trust-review-role">{review.role}</p>
-                </article>
-              ))}
-            </div>
-          </div>
+      <div className="trust-reviews-carousel-wrap">
+        <button className="trust-reviews-nav trust-reviews-nav--prev" type="button" aria-label="Previous review">
+          <span aria-hidden="true">←</span>
+        </button>
 
-          <div className="trust-reviews-nav" aria-label="Testimonial navigation">
-            <button type="button" onClick={handlePrevious} aria-label="Previous testimonials">
-              ←
-            </button>
-            <button type="button" onClick={handleNext} aria-label="Next testimonials">
-              →
-            </button>
-          </div>
-        </div>
+        <Swiper
+          className="trust-reviews-swiper"
+          modules={[Autoplay, Navigation, A11y]}
+          loop
+          speed={400}
+          grabCursor
+          navigation={{
+            prevEl: ".trust-reviews-nav--prev",
+            nextEl: ".trust-reviews-nav--next",
+          }}
+          autoplay={{
+            delay: 4000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
+          breakpoints={{
+            0: {
+              slidesPerView: 1.08,
+              spaceBetween: 12,
+            },
+            640: {
+              slidesPerView: 1.25,
+              spaceBetween: 18,
+            },
+            960: {
+              slidesPerView: 2.15,
+              spaceBetween: 24,
+            },
+            1240: {
+              slidesPerView: 2.4,
+              spaceBetween: 28,
+            },
+          }}
+        >
+          {reviews.map((review) => (
+            <SwiperSlide key={review.id} className="trust-reviews-swiper__slide">
+              <article className="trust-review-card">
+                <span className="trust-review-card__quote" aria-hidden="true">
+                  <FaQuoteRight />
+                </span>
+
+                <div className="trust-review-card__profile">
+                  <img className="trust-review-card__avatar" src={review.avatar} alt={`${review.name} profile`} />
+                  <div className="trust-review-card__person">
+                    <h3>{review.name}</h3>
+                    <p>{review.role}</p>
+                  </div>
+                </div>
+
+                <p className="trust-review-card__text">{review.text}</p>
+              </article>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        <button className="trust-reviews-nav trust-reviews-nav--next" type="button" aria-label="Next review">
+          <span aria-hidden="true">→</span>
+        </button>
       </div>
+
+      <section className="trust-stats-section">
+        <div className="trust-stats-grid">
+          {stats.map((stat) => (
+            <div className="trust-stat-card" key={stat.label}>
+              <p>{stat.value}</p>
+              <p>{stat.label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
     </section>
   );
 }

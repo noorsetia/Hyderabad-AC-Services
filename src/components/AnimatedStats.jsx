@@ -144,14 +144,16 @@ function AnimatedCounterCard({ stat, index, isActive, stagger = 140, locale }) {
       className={`animated-stat-card ${isActive ? "is-visible" : ""}`}
       style={{ "--stat-delay": `${index * 90}ms` }}
     >
-      {StatIcon ? (
-        <span className="animated-stat-card__icon-wrap" aria-hidden="true">
-          <StatIcon className="animated-stat-card__icon" />
-        </span>
-      ) : null}
-      <p className="animated-stat-card__value">{formattedValue}</p>
-      <p className="animated-stat-card__label">{stat.label}</p>
-      {stat.caption ? <p className="animated-stat-card__caption">{stat.caption}</p> : null}
+      <div className="animated-stat-card__inner">
+        {StatIcon ? (
+          <span className="animated-stat-card__icon-wrap" aria-hidden="true">
+            <StatIcon className="animated-stat-card__icon" />
+          </span>
+        ) : null}
+        <p className="animated-stat-card__value">{formattedValue}</p>
+        <p className="animated-stat-card__label">{stat.label}</p>
+        {stat.caption ? <p className="animated-stat-card__caption">{stat.caption}</p> : null}
+      </div>
     </article>
   );
 }
