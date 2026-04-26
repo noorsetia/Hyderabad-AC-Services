@@ -5,12 +5,14 @@ import { getLocalizedSiteContent } from "../data/localizedSiteContent";
 const footerTranslations = {
   en: {
     contactInfo: "Contact Info",
-    blog: "Blog",
+    services: "Services",
     quickLinks: "Quick Links",
     reachUsAt: "Reach us at",
     home: "Home",
     about: "About",
     contact: "Contact",
+    terms: "Terms & Conditions",
+    privacy: "Privacy Policy",
     phone: "Phone:",
     location: "Location:",
     email: "Email:",
@@ -21,12 +23,14 @@ const footerTranslations = {
   },
   hi: {
     contactInfo: "संपर्क जानकारी",
-    blog: "ब्लॉग",
+    services: "सेवाएं",
     quickLinks: "त्वरित लिंक",
     reachUsAt: "हमसे जुड़ें",
     home: "होम",
     about: "हमारे बारे में",
     contact: "संपर्क",
+    terms: "नियम और शर्तें",
+    privacy: "प्राइवेसी पॉलिसी",
     phone: "फ़ोन:",
     location: "स्थान:",
     email: "ईमेल:",
@@ -37,12 +41,14 @@ const footerTranslations = {
   },
   te: {
     contactInfo: "Contact Info",
-    blog: "Blog",
+    services: "Services",
     quickLinks: "Quick Links",
     reachUsAt: "Reach us at",
     home: "Home",
     about: "Maa Gurinchi",
     contact: "Sampradinchandi",
+    terms: "Terms & Conditions",
+    privacy: "Privacy Policy",
     phone: "Phone:",
     location: "Sthanam:",
     email: "Email:",
@@ -83,12 +89,6 @@ function Footer() {
     }
   };
 
-  const handleBackToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  const footerBlogs = (siteContent.blogPosts ?? []).slice(0, 4);
-
   return (
     <footer className="site-footer">
       <div className="footer-container">
@@ -123,15 +123,13 @@ function Footer() {
           </div>
 
           <div className="footer-column">
-            <p className="footer-label">{labels.blog}</p>
+            <p className="footer-label">{labels.services}</p>
             <ul className="footer-link-list footer-blog-list">
-              {footerBlogs.map((post) => (
-                <li key={post.title}>
-                  <Link to={`/blog/${post.slug}`}>
-                    » {post.title}
-                  </Link>
-                </li>
-              ))}
+              <li><Link to="/services/ac-service">AC Service</Link></li>
+              <li><Link to="/services/ac-repair">AC Repair</Link></li>
+              <li><Link to="/services/ac-installation">AC Installation</Link></li>
+              <li><Link to="/services/ducting">Ducting</Link></li>
+              <li><Link to="/services/centralized-ac">Centralized AC</Link></li>
             </ul>
           </div>
 
@@ -141,8 +139,9 @@ function Footer() {
               <li><Link to="/" onClick={handleHomeClick}>Home</Link></li>
               <li><Link to="/about">About Us</Link></li>
               <li><Link to="/services">Services</Link></li>
-              <li><Link to="/blog">Blog</Link></li>
               <li><Link to="/contact">Contact</Link></li>
+              <li><Link to="/terms-and-conditions">{labels.terms}</Link></li>
+              <li><Link to="/privacy-policy">{labels.privacy}</Link></li>
             </ul>
           </div>
 
