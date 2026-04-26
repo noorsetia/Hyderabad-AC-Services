@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { FaBriefcase, FaHeadset, FaStar, FaUsers } from "react-icons/fa";
+import { FiBriefcase, FiHeadphones, FiStar, FiUsers } from "react-icons/fi";
 import "./AnimatedStats.css";
 
 const DEFAULT_STATS = [
@@ -10,10 +10,10 @@ const DEFAULT_STATS = [
 ];
 
 const STAT_ICONS = {
-  rating: FaStar,
-  customers: FaUsers,
-  experience: FaBriefcase,
-  support: FaHeadset,
+  rating: FiStar,
+  customers: FiUsers,
+  experience: FiBriefcase,
+  support: FiHeadphones,
 };
 
 const easeOutQuint = (progress) => 1 - (1 - progress) ** 5;

@@ -180,15 +180,16 @@ const homeCopyByLanguage = {
     ],
     collaboratorsEyebrow: "Our Collaborators",
     collaboratorsTitle: "Brands We Work With",
-    collaboratorsDescription: "Trusted support for leading air conditioning brands across residential and commercial spaces.",
-    serviceFocusEyebrow: "Service Focus",
+    collaboratorsDescription:
+      "Trusted support for leading air conditioning brands across residential and commercial spaces.",
+    serviceFocusEyebrow: "OUR SERVICES",
     serviceFocusTitle: "Professional Cooling Services with Better Coverage",
-    latestArticlesEyebrow: "Latest Articles",
+    latestArticlesEyebrow: "LATEST ARTICLES",
     latestArticlesTitle: "Helpful Tips & Resources",
-    latestArticlesDescription: "Learn more about AC maintenance, installation, and care",
+    latestArticlesDescription: "Learn more about AC maintenance, installation, and long-term care.",
     readArticle: "Read article",
     askGuidance: "Ask our team for guidance",
-    serviceSupportEyebrow: "Service Support",
+    serviceSupportEyebrow: "SERVICE SUPPORT",
     serviceSupportTitle: "Contact & Location",
     phoneLabel: "Phone",
     emailLabel: "Email",
@@ -197,28 +198,10 @@ const homeCopyByLanguage = {
     whatsappUs: "WhatsApp Us",
     faqEyebrow: "Got Questions?",
     faqTitle: "Frequently Asked Questions",
-    faqSubtitle: "Find answers to common questions about our AC services and solutions",
-    ctaTitle: "Need AC Service Today?",
-    ctaDescription:
-      "Book a free consultation now. Our expert technicians are ready to help with any AC problem - residential or commercial.",
-    privacyPolicy: "Privacy Policy",
-    sitemapLabel: "Sitemap",
-    socialLinksLabel: "Social links",
+    faqSubtitle: "Find answers to common questions about our AC services and solutions.",
     quickTrustLabel: "Quick trust badges",
-    contactDetailsLabel: "Contact details",
     availableServicesAria: "Available service options",
-    footerLinksAria: "Footer completion links",
-    callAriaPrefix: "Call",
-    locationMapSuffix: "location map",
     starAria: "Five star visual rating",
-    copyright: "Copyright Hyderabad Ac Services 2021",
-    sitemapLinks: [
-      { label: "Home", to: "/" },
-      { label: "About", to: "/about" },
-      { label: "Services", to: "/services" },
-      { label: "Blog", to: "/blog" },
-      { label: "Contact", to: "/contact" },
-    ],
   },
   hi: {
     heroBadge: "गूगल रेटिंग 4.9",
@@ -228,39 +211,30 @@ const homeCopyByLanguage = {
       "रिहायशी से लेकर कमर्शियल तक पूरी एयर कंडीशनिंग सेवाएं। हैदराबाद में इंस्टॉलेशन, रिपेयर, मेंटेनेंस और एएमसी प्लान उपलब्ध हैं।",
     directSupport: "सीधा सहायता",
     callNow: "कॉल करें",
-    bookConsultation: "फ्री कंसल्टेशन बुक करें",
+    bookConsultation: "सर्विस बुक करें",
     callPrefix: "कॉल:",
     trustEyebrow: "विश्वसनीयता",
     trustTitle: "भरोसेमंद कूलिंग सपोर्ट",
     trustHighlights: [
-      {
-        title: "20+ साल का अनुभव",
-        description: "हैदराबाद भर में विश्वसनीय एसी इंस्टॉलेशन, रिपेयर और मेंटेनेंस सपोर्ट।",
-      },
-      {
-        title: "विश्वसनीय एचवीएसी विशेषज्ञ",
-        description: "रिहायशी और कमर्शियल कूलिंग के लिए प्रशिक्षित तकनीशियन।",
-      },
-      {
-        title: "गूगल रेटिंग 4.9",
-        description: "स्पष्ट संवाद के साथ लगातार उच्च गुणवत्ता वाली सेवा।",
-      },
+      { title: "अनुभवी तकनीशियन", description: "हर तरह की एसी सर्विस के लिए प्रशिक्षित विशेषज्ञ।" },
+      { title: "तेज और भरोसेमंद सेवा", description: "तेज प्रतिक्रिया और जरूरत पड़ने पर उसी दिन सेवा।" },
+      { title: "24/7 सहायता", description: "जब भी मदद चाहिए, हमारी टीम उपलब्ध है।" },
     ],
-    trustBadges: ["मल्टी-ब्रांड विशेषज्ञ", "पारदर्शी मूल्य", "इमरजेंसी सहायता", "सत्यापित टीम"],
-    statsEyebrow: "",
+    trustBadges: ["मल्टी-ब्रांड विशेषज्ञ", "पारदर्शी मूल्य", "सत्यापित तकनीशियन"],
+    statsEyebrow: "भरोसे के आंकड़े",
     statsTitle: "सेवा आंकड़े",
     statsDescription:
-      "रेटिंग से लेकर उपलब्ध सहायता तक, ये आंकड़े हैदराबाद में हमारी लगातार और भरोसेमंद एसी सेवा को दर्शाते हैं।",
+      "रेटिंग से लेकर सहायता उपलब्धता तक, ये आंकड़े हमारी भरोसेमंद एसी सेवाओं को दर्शाते हैं।",
     stats: [
       { value: 4.9, decimals: 1, label: "गूगल रेटिंग", icon: "rating" },
       { value: 500, suffix: "+", label: "संतुष्ट ग्राहक", icon: "customers" },
       { value: 10, suffix: "+", label: "सालों का अनुभव", icon: "experience" },
-      { value: 24, suffix: "/7", label: "24/7 सहायता", icon: "support" },
+      { value: 24, suffix: "/7", label: "सहायता", icon: "support" },
     ],
     collaboratorsEyebrow: "हमारे सहयोगी",
     collaboratorsTitle: "वे ब्रांड जिनके साथ हम काम करते हैं",
     collaboratorsDescription: "शीर्ष एसी ब्रांड्स के लिए भरोसेमंद सपोर्ट।",
-    serviceFocusEyebrow: "सेवा फोकस",
+    serviceFocusEyebrow: "हमारी सेवाएं",
     serviceFocusTitle: "पेशेवर कूलिंग सेवाएं",
     latestArticlesEyebrow: "नए लेख",
     latestArticlesTitle: "उपयोगी टिप्स और जानकारी",
@@ -277,26 +251,9 @@ const homeCopyByLanguage = {
     faqEyebrow: "कोई सवाल है?",
     faqTitle: "अक्सर पूछे जाने वाले सवाल",
     faqSubtitle: "हमारी एसी सेवाओं से जुड़े सामान्य सवालों के जवाब पाएं।",
-    ctaTitle: "आज ही एसी सर्विस चाहिए?",
-    ctaDescription: "अभी फ्री कंसल्टेशन बुक करें। हमारी विशेषज्ञ टीम हर एसी समस्या में आपकी मदद के लिए तैयार है।",
-    privacyPolicy: "गोपनीयता नीति",
-    sitemapLabel: "साइटमैप",
-    socialLinksLabel: "सोशल लिंक",
     quickTrustLabel: "विश्वास संकेतक",
-    contactDetailsLabel: "संपर्क विवरण",
     availableServicesAria: "उपलब्ध सेवा विकल्प",
-    footerLinksAria: "फुटर लिंक अनुभाग",
-    callAriaPrefix: "कॉल",
-    locationMapSuffix: "स्थान मानचित्र",
     starAria: "पांच सितारा दृश्य रेटिंग",
-    copyright: "कॉपीराइट हैदराबाद एसी सर्विसेज 2021",
-    sitemapLinks: [
-      { label: "होम", to: "/" },
-      { label: "हमारे बारे में", to: "/about" },
-      { label: "सेवाएं", to: "/services" },
-      { label: "ब्लॉग", to: "/blog" },
-      { label: "संपर्क", to: "/contact" },
-    ],
   },
   te: {
     heroBadge: "Google Rating 4.9",
@@ -306,34 +263,25 @@ const homeCopyByLanguage = {
       "Residential nundi commercial varaku complete AC services. Hyderabad lo installation, repair, maintenance mariyu AMC plans.",
     directSupport: "Direct Support",
     callNow: "Call Cheyyandi",
-    bookConsultation: "Free Consultation Book Cheyyandi",
+    bookConsultation: "Service Book Cheyyandi",
     callPrefix: "Call:",
     trustEyebrow: "Business Trust",
     trustTitle: "Nammakamaina Cooling Support",
     trustHighlights: [
-      {
-        title: "20+ Years Experience",
-        description: "Hyderabad lo reliable AC installation, repair mariyu maintenance support.",
-      },
-      {
-        title: "Trusted HVAC Experts",
-        description: "Residential mariyu commercial cooling needs kosam trained technicians.",
-      },
-      {
-        title: "Google Rating 4.9",
-        description: "Clear communication tho consistent service quality.",
-      },
+      { title: "Experienced Technicians", description: "All AC services kosam trained professionals." },
+      { title: "Quick & Reliable Service", description: "Fast response mariyu same-day service availability." },
+      { title: "24/7 Support", description: "Meeru eppudu contact chesina support untundi." },
     ],
-    trustBadges: ["Multi-Brand Experts", "Transparent Pricing", "Emergency Support", "Verified Team"],
-    statsEyebrow: "",
+    trustBadges: ["Multi-Brand Experts", "Transparent Pricing", "Verified Team"],
+    statsEyebrow: "SERVICE NUMBERS",
     statsTitle: "Trusted by Hundreds Across Hyderabad",
     statsDescription:
-      "A quick overview of our trusted services, satisfied customers, and commitment to delivering reliable AC solutions across Hyderabad.",
+      "Mana reliable AC services, satisfied customers mariyu support gurinchi quick overview.",
     stats: [
       { value: 4.9, decimals: 1, label: "Google Rating", icon: "rating" },
       { value: 500, suffix: "+", label: "Happy Customers", icon: "customers" },
       { value: 10, suffix: "+", label: "Years Experience", icon: "experience" },
-      { value: 24, suffix: "/7", label: "24/7 Support", icon: "support" },
+      { value: 24, suffix: "/7", label: "Support", icon: "support" },
     ],
     collaboratorsEyebrow: "Mana Collaborators",
     collaboratorsTitle: "Memu Panichesey Brands",
@@ -355,17 +303,8 @@ const homeCopyByLanguage = {
     faqEyebrow: "Questions Unnaya?",
     faqTitle: "Frequently Asked Questions",
     faqSubtitle: "Mana AC services gurinchi common questions ki samadhanalu.",
-    ctaTitle: "Ivalo AC Service Kavala?",
-    ctaDescription: "Free consultation book cheyyandi. Mana experts prathi AC problem ki ready ga untaru.",
-    privacyPolicy: "Privacy Policy",
-    sitemapLabel: "Sitemap",
-    socialLinksLabel: "Social links",
     quickTrustLabel: "Quick trust badges",
-    contactDetailsLabel: "Contact details",
     availableServicesAria: "Available service options",
-    footerLinksAria: "Footer completion links",
-    callAriaPrefix: "Call",
-    locationMapSuffix: "location map",
     starAria: "Five star visual rating",
     copyright: "Copyright Hyderabad Ac Services 2021",
     sitemapLinks: [
@@ -400,6 +339,7 @@ function Home() {
   const { language } = useAppPreferences();
   const siteContent = getLocalizedSiteContent(language);
   const copy = homeCopyByLanguage[language] ?? homeCopyByLanguage.en;
+
   const statsLocaleByLanguage = {
     en: "en-IN",
     hi: "hi-IN",
@@ -426,10 +366,9 @@ function Home() {
 
   const trustHighlights = copy.trustHighlights.map((item, index) => ({
     ...item,
-    icon: trustHighlightIcons[index],
+    icon: trustHighlightIcons[index] ?? trustHighlightIcons[0],
   }));
 
-  const mapEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(siteContent.location)}&output=embed`;
   const blogPosts =
     Array.isArray(siteContent.blogPosts) && siteContent.blogPosts.length
       ? siteContent.blogPosts
@@ -457,6 +396,23 @@ function Home() {
         image: blogImageOverrides[index] ?? cardPreset.image ?? blogCardDefaults.image,
       };
     });
+
+  const resourceCards = Array.from({ length: 4 }, (_, index) => {
+    const post = blogLinks[index] ?? blogs[index] ?? null;
+
+    if (!post) {
+      return null;
+    }
+
+    const media = resourceCardMedia[index % resourceCardMedia.length];
+
+    return {
+      ...post,
+      image: media.image,
+      imagePosition: media.imagePosition,
+      summary: media.summary,
+    };
+  }).filter(Boolean);
 
   return (
     <>
@@ -712,3 +668,4 @@ function Home() {
 }
 
 export default Home;
+  

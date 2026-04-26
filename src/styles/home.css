@@ -333,11 +333,78 @@
   background: linear-gradient(180deg, rgba(248, 252, 255, 0.94) 0%, rgba(255, 255, 255, 1) 100%);
 }
 
+.home-connected-flow {
+  width: min(100%, 1320px);
+  margin: 0 auto;
+  padding: 0 clamp(0.9rem, 2vw, 1.6rem);
+}
+
+.home-connected-flow-section {
+  width: 100%;
+  margin: 0;
+  border-radius: 0;
+}
+
+.home-connected-flow-section + .home-connected-flow-section {
+  border-top: 1px solid #E2E8F0;
+}
+
+.home-connected-flow-section--trust {
+  padding: clamp(2.5rem, 4vw, 3.3rem) clamp(0.75rem, 1.6vw, 1.4rem);
+}
+
+.home-connected-flow-section--trust .home-modern-section__title {
+  margin-top: 0.45rem;
+}
+
+.home-connected-flow-section--trust .home-modern-section__description {
+  margin-top: 0.55rem;
+  max-width: 46rem;
+  margin-inline: auto;
+  line-height: 1.65;
+}
+
+.home-connected-flow-section--stats {
+  padding: 0;
+  width: 100%;
+  background: linear-gradient(180deg, #F9FCFF 0%, #FFFFFF 100%);
+}
+
+.home-connected-flow-section--stats .animated-stats-shell {
+  padding: clamp(2.2rem, 3.8vw, 3rem) 0;
+}
+
+.home-connected-flow-section--stats .animated-stats-section {
+  width: 100%;
+  padding: 0 clamp(0.75rem, 1.5vw, 1.4rem);
+}
+
+.home-connected-flow-section--stats .animated-stats-grid {
+  margin-top: clamp(1.6rem, 2.6vw, 2.2rem);
+  gap: 1rem;
+}
+
+.home-connected-flow-section--collaborators {
+  padding: clamp(2.2rem, 3.8vw, 3rem) clamp(0.75rem, 1.6vw, 1.4rem);
+}
+
+.home-connected-flow-section--collaborators .home-modern-section__title {
+  margin-top: 0.55rem;
+}
+
+.home-connected-flow-section--collaborators .home-modern-section__description {
+  margin-top: 0.6rem;
+}
+
+.home-connected-flow-section--collaborators .home-trusted-by__layout {
+  margin-top: clamp(1.6rem, 2.8vw, 2.2rem);
+}
+
 .home-trust-grid {
   margin-top: 2rem;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.5rem;
+  gap: 1.15rem;
   align-items: stretch;
 }
 
@@ -452,6 +519,11 @@
 
 .home-trust-section__cta-button--secondary:hover {
   background: rgba(247, 251, 255, 1);
+}
+
+.home-trust-card__stars {
+  color: #F59E0B;
+  letter-spacing: 0.08em;
 }
 
 .home-trusted-by-section {
@@ -590,14 +662,76 @@
   border-radius: 0;
   isolation: isolate;
   overflow: visible;
-  background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
-  border-top: 1px solid #E2E8F0;
-  border-bottom: 1px solid #E2E8F0;
+  background: transparent;
+  border: 0;
+  backdrop-filter: none;
   box-shadow: none;
 }
 
 .home-modern-section--collaborators::before {
   content: none;
+}
+
+.home-modern-section--collaborators .home-modern-section__header {
+  display: grid;
+  justify-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.home-modern-section--collaborators .home-modern-eyebrow {
+  margin: 0;
+  color: #1F7AE0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-family: "Inter", "Poppins", sans-serif;
+}
+
+.home-modern-section--collaborators .home-modern-section__title {
+  margin: 0.85rem 0 0;
+  color: #113651;
+  font-family: "Nasalization", "Poppins", sans-serif;
+  font-size: clamp(2.2rem, 3.6vw, 3.45rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  max-width: 100%;
+  text-wrap: balance;
+}
+
+.home-modern-section--collaborators .home-modern-section__description {
+  margin: 0.8rem 0 0;
+  color: #5B6B7C;
+  font-size: 1rem;
+  line-height: 1.7;
+  font-family: "Inter", "Poppins", sans-serif;
+  max-width: 44rem;
+  text-wrap: balance;
+}
+
+.home-modern-section--collaborators .home-trusted-by__layout {
+  margin-top: clamp(1.6rem, 2.8vw, 2.2rem);
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+  gap: 0;
+}
+
+.home-modern-section--collaborators .home-trusted-by__left {
+  width: 100%;
+}
+
+.home-modern-section--collaborators .home-trusted-by__logos,
+.home-modern-section--collaborators .home-trusted-by__logos.home-modern-grid--logos {
+  max-width: min(100%, 1120px);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-top: 0;
+}
+
+.home-modern-section--collaborators .home-trusted-by__media {
+  display: none;
 }
 
 .home-modern-section--articles {
@@ -921,7 +1055,8 @@
   margin: 0;
   font-size: clamp(1.02rem, 1.8vw, 1.16rem);
   color: #0B1F33;
-  font-weight: 700;
+  font-weight: 600;
+  line-height: 1.4;
   font-family: "Poppins", sans-serif;
   line-height: 1.4;
 }
@@ -942,7 +1077,11 @@
 
 .home-modern-blog-link {
   width: fit-content;
-  color: #1F7AE0;
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #3182ce;
   font-size: 0.9rem;
   font-weight: 700;
   text-decoration: none;
@@ -1016,6 +1155,10 @@ body[data-theme="dark"] .home-modern-blog-card {
   border-color: rgba(141, 216, 255, 0.2);
   background: rgba(9, 27, 44, 0.92);
   box-shadow: 0 16px 34px rgba(4, 15, 27, 0.34);
+}
+
+body[data-theme="dark"] .home-modern-blog-card__excerpt {
+  color: #b6c5d6;
 }
 
 body[data-theme="dark"] .home-modern-blog-link {
@@ -1712,6 +1855,10 @@ body[data-theme="dark"] .home-page--modern .home-trusted-by__logo-card:hover {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .home-connected-flow {
+    padding-inline: 1rem;
+  }
+
   .home-trusted-by__layout {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -1760,8 +1907,30 @@ body[data-theme="dark"] .home-page--modern .home-trusted-by__logo-card:hover {
     width: min(100%, 420px);
   }
 
+  .home-connected-flow {
+    padding-inline: 0.9rem;
+  }
+
+  .home-connected-flow-section--trust,
+  .home-connected-flow-section--collaborators {
+    padding-inline: 0.2rem;
+  }
+
+  .home-connected-flow-section--stats .animated-stats-section {
+    padding-inline: 0.2rem;
+  }
+
   .home-modern-section--collaborators {
     padding: 1.2rem 0.9rem;
+  }
+
+  .home-modern-section--collaborators .home-modern-section__title {
+    font-size: clamp(1.95rem, 9vw, 2.5rem);
+  }
+
+  .home-modern-section--collaborators .home-trusted-by__logos,
+  .home-modern-section--collaborators .home-trusted-by__logos.home-modern-grid--logos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .home-modern-hero__actions {

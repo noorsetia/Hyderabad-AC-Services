@@ -2167,7 +2167,6 @@ body[data-theme="dark"] .home-button--secondary:hover {
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.footer-blog-list li:hover::before,
 .footer-quick-links li:hover::before {
   color: #ffffff;
   transform: translateX(2px);
