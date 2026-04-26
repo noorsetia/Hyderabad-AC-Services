@@ -151,6 +151,7 @@
 .animated-stat-card:hover .animated-stat-card__icon {
   color: #1992ff;
   transform: scale(1.04);
+}
 
 .animated-stat-card:hover {
   border-color: #1F7AE0;
